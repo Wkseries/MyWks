@@ -362,11 +362,17 @@ h1 {
   }
 
   h1 {
-    font-size: 2.2rem;
+    font-size: 2rem; /* Smaller font size for h1 */
   }
 
   h2 {
-    font-size: 1.8rem; /* Smaller h2 font on mobile */
+    font-size: 1.6rem; /* Smaller font size for h2 */
+  }
+
+  /* Making the underline under h2 longer */
+  h2::after {
+    width: 70%; /* Increased width of the underline */
+    background-color: #ff4b4b;
   }
 
   .section {
@@ -374,16 +380,25 @@ h1 {
   }
 
   .image-container {
-    grid-template-columns: repeat(3, 1fr); /* 3 images per row on small screens */
+    grid-template-columns: repeat(3, 1fr); /* 3 images per row on mobile */
     gap: 10px;
   }
 
   .navbar {
     padding: 10px 20px;
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: flex-start; /* Align navbar items to the left */
+  }
+
+  .navbar .nav-links {
+    display: flex;
+    flex-direction: column; /* Stack nav links vertically */
+    gap: 10px;
   }
 
   .navbar .nav-links a {
     font-size: 14px;
+    padding: 8px 0; /* Add padding for spacing */
   }
 
   .navbar .back-button {
