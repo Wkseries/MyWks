@@ -396,31 +396,6 @@ h1 {
 
 
 
-/* Mobile specific styles for 480px width */
-@media screen and (max-width: 480px) {
-  .nav-links {
-    display: grid; /* Use grid layout for proper row/column control */
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 1rem; /* Space between buttons */
-    justify-items: center; /* Center the buttons horizontally */
-  }
-
-  .nav-links a {
-    padding: 0.5rem 1rem; /* Button-like padding */
-    background-color: #ffcb42; /* Warm orange color */
-    border-radius: 5px; /* Rounded corners */
-    text-decoration: none; /* Remove underline */
-    font-weight: bold; /* Bold text */
-    text-align: center; /* Center the text inside the buttons */
-  }
-
-  .nav-links a:hover {
-    background-color: #ff4b4b; /* Darker orange on hover */
-  }
-}
-
-
-
 
   </style>
 </head>
@@ -429,11 +404,9 @@ h1 {
   <div class="navbar">
     <a href="index.html" class="back-button">Back to Home Page</a>
     <div class="nav-links">
-      <br>
       <a href="#10-stars">10 Stars</a>
       <a href="#9-stars">9 Stars</a>
       <a href="#8-stars">8 Stars</a>
-      <br>
       <a href="#7-stars">7 Stars</a>
       <a href="#6-stars">6 Stars</a>
       <a href="#5-stars">5 Stars</a>
