@@ -469,45 +469,56 @@ h1 {
   color: #ff4b4b;
 }
 
-
 @media (max-width: 480px) {
-  body {
-    padding: 15px;
+  /* Adjusting the layout for images */
+  .img-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
   }
 
-  h1 {
-    font-size: 2.2rem;
+  .img-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
 
+  /* Styling for h2 and underline */
   h2 {
-    font-size: 1.8rem;
+    font-size: 1.2rem; /* Smaller font size */
+    text-align: center;
+    position: relative;
   }
 
-  .section {
-    padding: 30px 20px;
+  h2::after {
+    content: '';
+    display: block;
+    margin: 0.5rem auto 0;
+    width: 60%; /* Longer underline */
+    height: 2px;
+    background-color: #333;
   }
 
-  .image-container {
-    grid-template-columns: repeat(2, 1fr); /* 2 images per row on mobile */
-    gap: 10px;
+  /* Fixing the navigation links */
+  nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .navbar {
-    padding: 10px 20px;
+  nav a {
+    font-size: 0.9rem;
+    margin: 0.3rem 0;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    color: #333;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
   }
 
-  .navbar .nav-links a {
-    font-size: 14px;
-  }
-
-  .navbar .back-button {
-    padding: 8px 15px;
-  }
-
-  #scrollToTopBtn {
-    width: 40px;
-    height: 40px;
-    font-size: 20px;
+  nav a:hover {
+    background-color: #f0f0f0;
   }
 }
 
