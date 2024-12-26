@@ -76,3 +76,13 @@ window.addEventListener('resize', adjustForMobileAndPC);
 
 // Initialize adjustments
 adjustForMobileAndPC();
+
+
+  // Function to scroll smoothly to the section
+  function scrollToSection(sectionId) {
+    const targetSection = document.getElementById(sectionId);
+    targetSection.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start', // Align the section to the top
+    });
+  }
