@@ -649,15 +649,6 @@ button {
   align-items: center; /* Center buttons vertically */
   flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
 }
-.spotify-iframe {
-  border-radius: 0px; /* Apply rounded corners */
-  width: 87%; /* Set width to 100% of the parent container */
-  margin-left: 20px;
-  margin-right: 20px;
-  height: 465px; /* Set height to 352px */
-  border: none; /* Remove default border */
-}
-
 }
 
 .spotify-iframe {
@@ -667,4 +658,20 @@ button {
   margin-right: 90px;
   height: 465px; /* Set height to 352px */
   border: none; /* Remove default border */
+}
+
+@media (max-width: 768px) {
+  .spotify-iframe {
+    width: 360px; /* Set width to 100% on smaller screens */
+    margin-left: 10px; /* Reduce margin */
+    margin-right: 10px; /* Reduce margin */
+    height: 300px; /* Adjust height for mobile */
+  }
+}
+
+/* Extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .spotify-iframe {
+    height: 250px; /* Further adjust height for very small screens */
+  }
 }
