@@ -360,6 +360,36 @@ h1 {
   color: #ff4b4b;
 }
 
+@media (max-width: 480px) {
+    /* Adjust for three images per row */
+    .img-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 images per row */
+        gap: 10px; /* Add some spacing between images */
+    }
+
+    .img-container img {
+        width: 100%; /* Ensure images fit within their containers */
+        height: auto; /* Maintain aspect ratio */
+    }
+
+    /* Smaller h2 size with longer underline */
+    h2 {
+        font-size: 1.2rem; /* Smaller font size */
+        text-align: center;
+        position: relative;
+        margin-bottom: 1rem;
+    }
+
+    h2::after {
+        content: '';
+        display: block;
+        width: 60%; /* Extend the underline */
+        height: 2px;
+        background-color: #000; /* Adjust color if necessary */
+        margin: 0.5rem auto 0; /* Center underline under text */
+    }
+}
 
 
   </style>
