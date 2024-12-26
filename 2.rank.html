@@ -384,7 +384,6 @@ h1 {
     gap: 10px;
   }
 
-  /* Navbar for mobile */
   .navbar {
     padding: 10px 20px;
     flex-direction: column; /* Stack navbar items vertically */
@@ -405,14 +404,28 @@ h1 {
   .navbar .back-button {
     padding: 8px 15px;
   }
-
-  /* Back button styling for mobile */
-  .navbar .back-button {
-    width: 100%; /* Full width for easy clicking */
-    margin-bottom: 10px; /* Space between button and links */
-  }
 }
 
+@media screen and (max-width: 768px) {
+  .menu-container {
+    display: flex;
+    gap: 1rem;  /* Add space between the buttons */
+    flex-direction: row;  /* Arrange buttons horizontally */
+  }
+
+  .menu-container a {
+    padding: 0.5rem 1rem;  /* Make the nav links look like buttons */
+    background-color: #f0f0f0;  /* Button background color */
+    border-radius: 5px;  /* Rounded corners for buttons */
+    text-decoration: none;  /* Remove underline from links */
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .menu-container a:hover {
+    background-color: #ddd;  /* Darker background on hover */
+  }
+}
 
 
   </style>
