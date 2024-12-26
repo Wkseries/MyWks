@@ -397,21 +397,24 @@ h1 {
 @media screen and (max-width: 480px) {
   .nav-links {
     flex-direction: row; /* Arrange the links horizontally */
+    flex-wrap: wrap; /* Allow the links to wrap into the next row */
     justify-content: center; /* Center the links */
   }
 
   .nav-links a {
     padding: 0.5rem 1rem; /* Add padding to make links look like buttons */
-    background-color: #f0f0f0; /* Button background color */
+    background-color: yellow; /* Button background color */
     border-radius: 5px; /* Rounded corners */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make the text bold */
     text-align: center; /* Center the text inside the buttons */
     margin: 0.25rem; /* Space between the buttons */
+    flex: 1 0 30%; /* Make each button take up 30% of the row width */
+    box-sizing: border-box; /* Ensure padding and margin are included in the element's total width */
   }
 
   .nav-links a:hover {
-    background-color: #ddd; /* Darker background on hover */
+    background-color: #f0c000; /* Darker yellow on hover */
   }
 }
 
