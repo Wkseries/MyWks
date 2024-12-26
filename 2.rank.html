@@ -403,7 +403,7 @@ h1 {
 
   .nav-links a {
     padding: 0.5rem 1rem; /* Add padding to make links look like buttons */
-    background-color: yellow; /* Button background color */
+    background-color: #ff9e3d; /* Orange color close to yellow */
     border-radius: 5px; /* Rounded corners */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Make the text bold */
@@ -413,11 +413,17 @@ h1 {
     box-sizing: border-box; /* Ensure padding and margin are included in the element's total width */
   }
 
+  /* Ensure only 3 items per row, and it wraps neatly into 2 rows */
+  .nav-links a:nth-child(4),
+  .nav-links a:nth-child(5),
+  .nav-links a:nth-child(6) {
+    margin-left: 0; /* Reset left margin to align the second row */
+  }
+
   .nav-links a:hover {
-    background-color: #f0c000; /* Darker yellow on hover */
+    background-color: #ff7b2a; /* Darker orange on hover */
   }
 }
-
 
   </style>
 </head>
