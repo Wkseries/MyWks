@@ -339,6 +339,115 @@ h1 {
   margin-top: 50px;
 }
 
+/* Media Queries for Mobile and Tablets */
+@media (max-width: 768px) {
+  body {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  .section {
+    padding: 40px 30px;
+  }
+
+  .image-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 images per row on tablets */
+    gap: 15px;
+  }
+
+  .image-box {
+    max-width: 100%;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navbar .back-button {
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .section {
+    padding: 30px 20px;
+  }
+
+  .image-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 images per row on mobile */
+    gap: 10px;
+  }
+
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .navbar .nav-links a {
+    font-size: 14px;
+  }
+
+  .navbar .back-button {
+    padding: 8px 15px;
+  }
+
+  #scrollToTopBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 320px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  .section {
+    padding: 25px 15px;
+  }
+
+  .image-container {
+    grid-template-columns: 1fr; /* 1 image per row on very small screens */
+  }
+
+  .navbar {
+    padding: 8px 15px;
+  }
+
+  .navbar .nav-links a {
+    font-size: 13px;
+  }
+}
+
 .copyright {
   text-align: center;
   font-size: 1.1rem;
@@ -358,37 +467,6 @@ h1 {
 
 .copyright a:hover {
   color: #ff4b4b;
-}
-
-@media (max-width: 480px) {
-    /* Adjust for three images per row */
-    .img-container {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* 3 images per row */
-        gap: 10px; /* Add some spacing between images */
-    }
-
-    .img-container img {
-        width: 100%; /* Ensure images fit within their containers */
-        height: auto; /* Maintain aspect ratio */
-    }
-
-    /* Smaller h2 size with longer underline */
-    h2 {
-        font-size: 1.2rem; /* Smaller font size */
-        text-align: center;
-        position: relative;
-        margin-bottom: 1rem;
-    }
-
-    h2::after {
-        content: '';
-        display: block;
-        width: 60%; /* Extend the underline */
-        height: 2px;
-        background-color: #000; /* Adjust color if necessary */
-        margin: 0.5rem auto 0; /* Center underline under text */
-    }
 }
 
 
