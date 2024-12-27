@@ -257,12 +257,6 @@ h4 {
     margin-bottom: 20px; /* Adjust bottom margin */
   }
 
-  h2 {
-    font-size: 1.2rem !important; /* Make font size smaller */
-    margin-top: 20px; /* Adjust top margin */
-    margin-bottom: 20px; /* Adjust bottom margin */
-  }
-
   h5 {
     font-size: 1.1rem; /* Make font size smaller */
     margin-top: 20px; /* Adjust top margin */
@@ -271,15 +265,18 @@ h4 {
 
   /* 5. Add gap above and below <h4> */
   h4 {
-    font-size: 1.2rem; /* Make the h4 font size smaller */
     margin-top: 15px; /* Adjust top margin */
     margin-bottom: 15px; /* Adjust bottom margin */
   }
 
   .h {
-    font-size: 1.5rem; /* Make the .h font size smaller */
+    font-size: 1.6rem; /* Adjust font size smaller on mobile */
     margin-top: 15px; /* Adjust top margin */
     margin-bottom: 15px; /* Adjust bottom margin */
+  }
+
+  h2 {
+    font-size: 1.3rem; /* Adjust font size smaller for h2 on mobile */
   }
 
   /* 6. Make text smaller and adjust it for left-to-right reading */
@@ -334,8 +331,14 @@ h4 {
     padding: 0 15px; /* Reduce horizontal padding */
   }
 
+  h4 {
+    font-size: 1rem !important; /* Force the change using !important */
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
   .h {
-    font-size: 1.6rem !important; /* Adding !important to force the change */
+    font-size: 1rem !important; /* Adding !important to force the change */
     margin-top: 15px; 
     margin-bottom: 15px;
   }
