@@ -258,12 +258,6 @@ h4 {
     margin-bottom: 20px; /* Adjust bottom margin */
   }
 
-  h4 {
-    font-size: 1rem; /* Make font size smaller */
-    margin-top: 20px; /* Adjust top margin */
-    margin-bottom: 20px; /* Adjust bottom margin */
-  }
-
   h5 {
     font-size: 1.1rem; /* Make font size smaller */
     margin-top: 20px; /* Adjust top margin */
@@ -331,5 +325,11 @@ h4 {
   /* 12. Adjust the overall layout */
   .review {
     padding: 0 15px; /* Reduce horizontal padding */
+  }
+
+  h4 {
+    font-size: 1rem !important; /* Adding !important to force the change */
+    margin-top: 15px; 
+    margin-bottom: 15px;
   }
 }
