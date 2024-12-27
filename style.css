@@ -251,13 +251,6 @@ h4 {
     padding: 10px; /* Adjust the padding for smaller screens */
   }
 
-  /* 2. Center the home button in the middle of the page at the top */
-  .home-link {
-    display: block;
-    text-align: center;
-    margin: 20px auto 30px; /* Center and add gap below the home link */
-  }
-
   /* 3. Add gap above and below the <h1> */
   h1 {
     font-size: 1.5rem; /* Make font size smaller */
@@ -276,13 +269,6 @@ h4 {
     margin-top: 15px; /* Adjust top margin */
     margin-bottom: 15px; /* Adjust bottom margin */
   }
-
-  h2 {
-    font-size: 0.9rem; /* Make font size smaller */
-    margin-top: 20px; /* Adjust top margin */
-    margin-bottom: 20px; /* Adjust bottom margin */
-  }
-
 
   /* 6. Make text smaller and adjust it for left-to-right reading */
   .review p {
