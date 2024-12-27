@@ -633,9 +633,9 @@ button {
   border: none;
   padding: 10px 20px;
   margin: 5px;
-  border-radius: 30px;
+  border-radius: 32px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 15px;
   color: white;
   display: block; /* Make button a block-level element */
   margin-left: auto; /* Center horizontally */
