@@ -674,9 +674,4 @@ button {
   .spotify-iframe {
     height: 250px; /* Further adjust height for very small screens */
   }
-
-  .image-link{
-    height: 200px;
-    width: auto;
-  }
 }
