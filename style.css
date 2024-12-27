@@ -277,6 +277,13 @@ h4 {
     margin-bottom: 15px; /* Adjust bottom margin */
   }
 
+  h2 {
+    font-size: 1.1rem; /* Make font size smaller */
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 20px; /* Adjust bottom margin */
+  }
+
+
   /* 6. Make text smaller and adjust it for left-to-right reading */
   .review p {
     font-size: 0.9rem; /* Make text smaller */
