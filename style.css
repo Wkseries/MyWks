@@ -258,7 +258,7 @@ h4 {
   }
 
   h2 {
-    font-size: 1rem !important; /* Make font size smaller */
+    font-size: 1.2rem !important; /* Make font size smaller */
     margin-top: 20px; /* Adjust top margin */
     margin-bottom: 20px; /* Adjust bottom margin */
   }
@@ -335,7 +335,7 @@ h4 {
   }
 
   .h {
-    font-size: 1.4rem !important; /* Adding !important to force the change */
+    font-size: 1.6rem !important; /* Adding !important to force the change */
     margin-top: 15px; 
     margin-bottom: 15px;
   }
