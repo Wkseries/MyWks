@@ -257,6 +257,12 @@ h4 {
     margin-bottom: 20px; /* Adjust bottom margin */
   }
 
+  h2 {
+    font-size: 1rem !important; /* Make font size smaller */
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 20px; /* Adjust bottom margin */
+  }
+
   h5 {
     font-size: 1.1rem; /* Make font size smaller */
     margin-top: 20px; /* Adjust top margin */
@@ -328,14 +334,8 @@ h4 {
     padding: 0 15px; /* Reduce horizontal padding */
   }
 
-  h4 {
-    font-size: 1rem !important; /* Force the change using !important */
-    margin-top: 15px;
-    margin-bottom: 15px;
-  }
-
   .h {
-    font-size: 1rem !important; /* Adding !important to force the change */
+    font-size: 1.2rem !important; /* Adding !important to force the change */
     margin-top: 15px; 
     margin-bottom: 15px;
   }
