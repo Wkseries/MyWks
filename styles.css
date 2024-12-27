@@ -372,20 +372,7 @@ button:hover {
   gap: 7px;
 }
 
-.o {
-  display: flex;
-  margin-left: 100px; /* Margin to the left */
-  gap: 7px;
-}
-
 .i img {
-  width: 180px; /* Make images smaller */
-  height: 250px; /* Maintain aspect ratio */
-  margin-right: 10px; /* Space between images */
-  transition: transform 0.3s ease;
-}
-
-.o img {
   width: 180px; /* Make images smaller */
   height: 250px; /* Maintain aspect ratio */
   margin-right: 10px; /* Space between images */
@@ -447,6 +434,30 @@ body {
   background-color: #ffffff; /* Example background color */
 }
 
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+    margin-left: 40px;
+  }
+
+  h2::after {
+    width: 70%; /* Increase the underline width */
+  }
+
+  .i {
+    display: grid; /* Use grid layout instead of flexbox */
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 10px; /* Space between images */
+    margin-left: 10px; /* Add some margin from the left */
+  }
+
+  .i img {
+    width: 90%; /* Make images a bit smaller */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0; /* Reset margin right */
+  }
+}
+
 @media (max-width: 480px) {
   h2 {
     font-size: 20px;
@@ -465,19 +476,6 @@ body {
   }
 
   .i img {
-    width: 85%; /* Make images smaller on smaller screens */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 0; /* Reset margin right */
-  }
-
-  .o {
-    display: grid; /* Use grid layout instead of flexbox */
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 10px; /* Space between images */
-    margin-left: 10px; /* Add some margin from the left */
-  }
-
-  .o img {
     width: 85%; /* Make images smaller on smaller screens */
     height: auto; /* Maintain aspect ratio */
     margin-right: 0; /* Reset margin right */
@@ -651,6 +649,15 @@ button {
   align-items: center; /* Center buttons vertically */
   flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
 }
+.spotify-iframe {
+  border-radius: 0px; /* Apply rounded corners */
+  width: 87%; /* Set width to 100% of the parent container */
+  margin-left: 20px;
+  margin-right: 20px;
+  height: 465px; /* Set height to 352px */
+  border: none; /* Remove default border */
+}
+
 }
 
 .spotify-iframe {
@@ -660,20 +667,4 @@ button {
   margin-right: 90px;
   height: 465px; /* Set height to 352px */
   border: none; /* Remove default border */
-}
-
-@media (max-width: 768px) {
-  .spotify-iframe {
-    width: 360px; /* Set width to 100% on smaller screens */
-    margin-left: 10px; /* Reduce margin */
-    margin-right: 10px; /* Reduce margin */
-    height: 300px; /* Adjust height for mobile */
-  }
-}
-
-/* Extra small devices (max-width: 480px) */
-@media (max-width: 480px) {
-  .spotify-iframe {
-    height: 250px; /* Further adjust height for very small screens */
-  }
 }
