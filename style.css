@@ -332,14 +332,8 @@ h4 {
   }
 
   h4 {
-    font-size: 1rem !important; /* Force the change using !important */
+    font-size: 1.2rem !important; /* Force the change using !important */
     margin-top: 15px;
-    margin-bottom: 15px;
-  }
-
-  .h {
-    font-size: 1rem !important; /* Adding !important to force the change */
-    margin-top: 15px; 
     margin-bottom: 15px;
   }
 }
