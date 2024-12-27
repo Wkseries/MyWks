@@ -258,6 +258,12 @@ h4 {
     margin-bottom: 20px; /* Adjust bottom margin */
   }
 
+  h4 {
+    font-size: 1rem; /* Make font size smaller */
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 20px; /* Adjust bottom margin */
+  }
+
   h5 {
     font-size: 1.1rem; /* Make font size smaller */
     margin-top: 20px; /* Adjust top margin */
@@ -266,6 +272,11 @@ h4 {
 
   /* 5. Add gap above and below <h4> */
   h4 {
+    margin-top: 15px; /* Adjust top margin */
+    margin-bottom: 15px; /* Adjust bottom margin */
+  }
+
+  .h {
     margin-top: 15px; /* Adjust top margin */
     margin-bottom: 15px; /* Adjust bottom margin */
   }
@@ -303,10 +314,11 @@ h4 {
     height: auto; /* Maintain aspect ratio */
   }
 
-  /* 10. Make the iframe container take full width */
   .iframe-container {
-    width: 100%; /* Make it responsive */
-    height: auto; /* Allow height to adjust */
+    width: 100%;  /* Make iframe responsive */
+    height: 180px; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure iframe doesn't overflow */
+    border: none; /* Remove border for a cleaner look */
   }
 
   /* 11. Adjust typography */
