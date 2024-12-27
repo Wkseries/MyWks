@@ -239,114 +239,87 @@ h4 {
   }
 }
 
-@media (max-width: 768px) {
+@media only screen and (max-width: 768px) {
+  /* 1. General adjustments for the body */
   body {
+    font-size: 16px; /* Reduce base font size for smaller screens */
+    padding: 10px; /* Adjust the padding for smaller screens */
+  }
+
+  /* 2. Center the home button in the middle of the page at the top */
+  .home-link {
+    display: block;
     text-align: center;
+    margin: 20px auto; /* Adjust the margin for centering */
   }
 
-  .player {
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  iframe {
-    width: 90%;
-    height: 400px;
-  }
-}
-
-@media (max-width: 480px) {
-  .unselectable {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-  }
-
+  /* 3. Add gap above and below the <h1> */
   h1 {
-    font-size: 28px; /* Smaller heading size */
+    font-size: 1.5rem; /* Make font size smaller */
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 20px; /* Adjust bottom margin */
   }
 
-  h2 {
-    font-size: 20px; /* Smaller heading size */
+  /* 4. Make the stars in <h1> appear on the same line with a smaller size */
+  h1 span {
+    font-size: 1.2rem; /* Adjust stars font size */
+    white-space: nowrap; /* Ensure stars stay on the same line */
   }
 
-  h3 {
-    font-size: 16px; /* Smaller heading size */
-  }
-
+  /* 5. Add gap above and below <h4> */
   h4 {
-    font-size: 20px; /* Adjusted heading size */
-    margin-top: 10px;
+    margin-top: 15px; /* Adjust top margin */
+    margin-bottom: 15px; /* Adjust bottom margin */
   }
 
-  .section, .sec {
-    padding: 20px;
-    margin: 15px 0;
-    border-radius: 10px;
+  /* 6. Make text smaller and adjust it for left-to-right reading */
+  .review p {
+    font-size: 0.9rem; /* Make text smaller */
+    text-align: left; /* Ensure left-to-right alignment */
+    line-height: 1.5; /* Improve readability with a better line height */
   }
 
-  .review {
-    padding: 0 10px;
-  }
-
-  .imgBx img {
-    width: 100%;
-  }
-
-  .contents {
-    font-size: 1.2rem;
-    padding: 15px 20px;
-  }
-
+  /* 7. Improve the responsiveness of the YouTube iframe */
   .youtube-iframe {
     width: 100%;
-    height: 350px;
+    max-width: 560px; /* Limit the maximum width */
+    height: 315px;
+    margin: 0 auto; /* Center the iframe */
+    display: block;
   }
 
-  .c {
-    width: 100%;
-    height: 300px;
+  /* 8. Adjust section and content padding */
+  .section, .sec {
+    padding: 20px 20px; /* Reduce padding for smaller screens */
+    margin: 15px 0; /* Adjust the margins for spacing */
   }
 
-  .home-link {
-    font-size: 16px;
-    padding: 20px 30px;
-    margin-bottom: 10px;
+  /* 9. Adjust the player image and audio container */
+  .player {
+    width: 100%; /* Make the player take full width */
+    margin: 20px 0; /* Add margin between elements */
+    padding: 15px; /* Adjust padding */
+  }
+  .imgBx img {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
   }
 
-  .h {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 700;
-    text-align: center;
-    animation: textGlow 1.5s ease-in-out infinite alternate;
-    color: #e2e2e2;
-    margin-bottom: 40px;
-    font-size: 30px;
-    margin-bottom: 20px;
-    position: relative; /* Needed for the pseudo-element approach */
-  }
-  
-  .h::after {
-    content: '';
-    position: absolute;
-    bottom: -10px; /* Adjust the position of the underline */
-    left: 20%; /* Adjust for centered appearance */
-    width: 70%; /* Width of the underline relative to the text */
-    height: 2px; /* Thickness of the underline */
-    background-color: #e2e2e2; /* Color of the underline */
-  }
-
-  .copyright {
-    font-size: 14px;
-    padding: 0 15px;
-  }
-
+  /* 10. Make the iframe container take full width */
   .iframe-container {
-    width: 100%;  /* Make iframe responsive */
-    height: 180px; /* Maintain aspect ratio */
-    max-width: 100%; /* Ensure iframe doesn't overflow */
-    border: none; /* Remove border for a cleaner look */
+    width: 100%; /* Make it responsive */
+    height: auto; /* Allow height to adjust */
+  }
+
+  /* 11. Adjust typography */
+  .copyright {
+    font-size: 14px; /* Make the font size smaller */
+    padding: 0 10px; /* Adjust horizontal padding */
+    text-align: center;
+  }
+
+  /* 12. Adjust the overall layout */
+  .review {
+    padding: 0 15px; /* Reduce horizontal padding */
   }
 }
