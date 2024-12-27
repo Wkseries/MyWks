@@ -255,7 +255,7 @@ h4 {
   .home-link {
     display: block;
     text-align: center;
-    margin: 20px auto; /* Adjust the margin for centering */
+    margin: 20px auto 30px; /* Center and add gap below the home link */
   }
 
   /* 3. Add gap above and below the <h1> */
