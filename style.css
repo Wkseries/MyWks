@@ -1,0 +1,356 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 18px; /* Increase the base font size */
+  background: linear-gradient(135deg, #2b2b2b, #3d3d3d);
+  background-size: cover;
+  background-attachment: fixed;
+  color: #dcdcdc;
+  padding: 20px 20px; /* Added horizontal padding */
+  animation: fadeIn 2s ease-in-out;
+}
+
+.unselectable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+a {
+  text-decoration: none;
+  color: #a1a1a1;
+  font-weight: 700;
+}
+
+a:hover {
+  color: #d4d4d4;
+}
+
+.section {
+  padding: 35px 45px; /* Added horizontal padding */
+  border-radius: 15px;
+  background: rgba(50, 50, 50, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin: 20px 0;
+}
+
+.sec {
+  padding: 30px;
+  border-radius: 15px;
+  background: rgba(50, 50, 50, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  margin: 20px 0;
+}
+
+h1, h2, h3, h5 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  animation: textGlow 1.5s ease-in-out infinite alternate;
+  color: #e2e2e2;
+  margin-bottom: 40px;
+  padding: 0 20px; /* Added horizontal padding */
+}
+
+h1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+h4 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #e2e2e2;
+}
+
+.review {
+  margin-top: 10px;
+  color: #b3b3b3;
+  line-height: 2.2;
+  padding: 0 20px; /* Added horizontal padding */
+}
+
+.player {
+  width: 38%;
+  float: right;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background: #9e9e9e;
+  padding: 20px 20px 8px 20px; /* Adjusted padding */
+  border-radius: 10px;
+  box-shadow: 10px 2px 90px -11px rgba(20, 20, 20, 0.75);
+}
+
+.imgBx img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.player audio {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.contents {
+  padding: 20px 30px; /* Adjusted padding */
+  background: linear-gradient(135deg, #444, #666);
+  -webkit-background-clip: text;
+  color: transparent;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  position: relative;
+}
+
+.contents::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 10%;
+  width: 80%;
+  height: 2px;
+  background-color: #444;
+}
+
+.youtube-iframe {
+  width: 100%;
+  height: 600px;
+  align-items: center;
+}
+
+.home-link {
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.home-link:hover {
+  color:black;
+  background: #ffff;
+}
+
+.iframe-container {
+  width: 100%;
+  height: 250px; /* Make the container take up the full height of the viewport */
+  max-width: 100%; /* Prevent container from being larger than the viewport */
+  display: flex; /* Align items properly */
+  flex-direction: column; /* Stack iframes vertically */
+  justify-content: center; /* Center content vertically */
+  overflow: visible; /* Allow the content to overflow if necessary */
+}
+.c {
+  width: 100%; /* Take full width of the parent container */
+  height: 600px; /* Make iframe height adjust according to container */
+  border: none; /* Remove the border */
+  display: block; /* Make iframe block-level */
+  box-sizing: border-box; /* Ensure padding/border doesn't affect dimensions */
+  margin: 0; /* Remove any margin */
+}
+
+.h {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  text-align: center;
+  animation: textGlow 1.5s ease-in-out infinite alternate;
+  color: #e2e2e2;
+  margin-bottom: 40px;
+  font-size: 40px;
+  margin-bottom: 20px;
+  position: relative; /* Needed for the pseudo-element approach */
+}
+
+.h::after {
+  content: '';
+  position: absolute;
+  bottom: -10px; /* Adjust the position of the underline */
+  left: 20%; /* Adjust for centered appearance */
+  width: 60%; /* Width of the underline relative to the text */
+  height: 2px; /* Thickness of the underline */
+  background-color: #e2e2e2; /* Color of the underline */
+}
+
+.copyright {
+  text-align: center;
+  font-size: 16px;
+  color: #a1a1a1;
+  margin-top: 20px;
+  line-height: 1.6;
+  animation: fadeIn 2s ease-in-out;
+  padding: 0 20px; /* Added horizontal padding */
+}
+
+.copyright a {
+  color: #dcdcdc;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+  color: #a1a1a1;
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 10px #4f4f4f, 0 0 20px #666, 0 0 30px #7a7a7a;
+  }
+  100% {
+    text-shadow: 0 0 20px #808080, 0 0 40px #666, 0 0 50px #4f4f4f;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  /* 1. General adjustments for the body */
+  body {
+    font-size: 16px; /* Reduce base font size for smaller screens */
+    padding: 10px; /* Adjust the padding for smaller screens */
+  }
+
+  /* 3. Add gap above and below the <h1> */
+  h1 {
+    font-size: 1.5rem; /* Make font size smaller */
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 20px; /* Adjust bottom margin */
+  }
+
+  h5 {
+    font-size: 1.1rem; /* Make font size smaller */
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 20px; /* Adjust bottom margin */
+  }
+
+  /* 5. Add gap above and below <h4> */
+  h4 {
+    margin-top: 15px; /* Adjust top margin */
+    margin-bottom: 15px; /* Adjust bottom margin */
+  }
+
+  .h {
+    font-size: 1.6rem; /* Adjust font size smaller on mobile */
+    margin-top: 15px; /* Adjust top margin */
+    margin-bottom: 15px; /* Adjust bottom margin */
+  }
+
+  h2 {
+    font-size: 1.3rem; /* Adjust font size smaller for h2 on mobile */
+  }
+
+  /* 6. Make text smaller and adjust it for left-to-right reading */
+  .review p {
+    font-size: 0.9rem; /* Make text smaller */
+    text-align: left; /* Ensure left-to-right alignment */
+    line-height: 1.5; /* Improve readability with a better line height */
+  }
+
+  /* 7. Improve the responsiveness of the YouTube iframe */
+  .youtube-iframe {
+    width: 100%;
+    max-width: 560px; /* Limit the maximum width */
+    height: 315px;
+    margin: 0 auto; /* Center the iframe */
+    display: block;
+  }
+
+  /* 8. Adjust section and content padding */
+  .section, .sec {
+    padding: 20px 20px; /* Reduce padding for smaller screens */
+    margin: 15px 0; /* Adjust the margins for spacing */
+  }
+
+  /* 9. Adjust the player image and audio container */
+  .player {
+    width: 100%; /* Make the player take full width */
+    margin: 20px 0; /* Add margin between elements */
+    padding: 15px; /* Adjust padding */
+  }
+  .imgBx img {
+    width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  .iframe-container {
+    width: 100%;  /* Make iframe responsive */
+    height: 180px; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure iframe doesn't overflow */
+    border: none; /* Remove border for a cleaner look */
+  }
+
+  /* 11. Adjust typography */
+  .copyright {
+    font-size: 14px; /* Make the font size smaller */
+    padding: 0 10px; /* Adjust horizontal padding */
+    text-align: center;
+  }
+
+  /* 12. Adjust the overall layout */
+  .review {
+    padding: 0 15px; /* Reduce horizontal padding */
+  }
+
+  h4 {
+    font-size: 1.2rem !important; /* Force the change using !important */
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  /* Center the home-link button on mobile */
+  .home-link {
+    position: static; /* Remove absolute positioning */
+    display: block; /* Make it a block-level element */
+    margin: 20px auto; /* Center it horizontally with automatic margins */
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: #e2e2e2;
+    color: #333;
+    width: 60%; /* Adjust width if necessary */
+  }
+}

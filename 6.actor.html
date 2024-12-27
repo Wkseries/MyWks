@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drama Reviews</title>
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  background: linear-gradient(135deg, #121212, #1c1c1c, #2f2f2f, #121212);
+  background-size: 300% 300%;
+  color: #fff;
+  padding: 40px 50px;
+  overflow-x: hidden;
+  opacity: 0;
+  animation: gradientAnimation 6s ease-in-out infinite, fadeInBody 1.5s forwards;
+}
+
+/* Animation for background gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Existing fade-in animation for body */
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Global styles for titles */
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeInTitle 1s forwards;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  animation-delay: 0.5s;
+}
+
+h5 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  position: relative;
+  animation-delay: 0.5s;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ff4b4b;
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  animation-delay: 0.5s;
+}
+
+h3::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ff4b4b;
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  position: relative;
+  animation-delay: 0.7s;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #ff4b4b;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+h2:hover::after {
+  width: 100%; /* Underline gets longer on hover */
+  background-color: #ffcb42;
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section styling */
+.section {
+  padding: 50px 40px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeInSection 1.5s forwards;
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin-top: 40px;
+}
+
+/* Scroll-to-Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #ff4b4b;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* A more subtle bounce */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#scrollToTopBtn:hover {
+  background-color: #ffcb42;
+  transform: scale(1.1);
+}
+
+#scrollToTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+
+.navbar .back-button {
+  background-color: #ff4b4b;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.navbar .back-button:hover {
+  background-color: #ffcb42;
+  transform: scale(1.05);
+}
+
+/* Styling for the nav links container */
+.navbar .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Styling for each nav link */
+.navbar .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+/* Hover effect for nav links */
+.navbar .nav-links a:hover {
+  color: #ffcb42;
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Add smooth scrolling to the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add click animation effect to nav links */
+.navbar .nav-links a.clicked {
+  animation: clickAnimation 0.3s ease;
+  color: #ff4b4b; /* Change color when clicked */
+}
+
+/* Keyframes for the click animation */
+@keyframes clickAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Slightly grow the link */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.copyright {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ebebeb;
+  padding: 5px;
+  width: 100%;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.copyright a {
+  color: #ffd700;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+  color: #ff4b4b;
+}
+
+/* Smooth transition for scrolling */
+.scroll-to-target {
+  opacity: 0;
+  pointer-events: none;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Smaller font size for h1 */
+  }
+
+  h2 {
+    font-size: 1.4rem; /* Smaller font size for h2 */
+  }
+
+  /* Making the underline under h2 longer */
+  h2::after {
+    width: 75%; /* Increased width of the underline */
+    background-color: #ff4b4b;
+  }
+
+  .section {
+    padding: 30px 20px;
+  }
+
+  .image-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 images per row on mobile */
+    gap: 10px;
+  }
+
+  .navbar {
+    padding: 5px 5px;
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: flex-start; /* Align navbar items to the left */
+  }
+  .navbar .back-button {
+    padding: 8px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  div.nav-links {
+    display: none !important; /* Force hiding even if other rules exist */
+  }
+}
+
+.srcx {
+  width: 40%; 
+  float: right; 
+  margin-left: 20px; 
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 20px 14px 8px 14px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 10px 2px 90px -11px rgba(13,100,76,0.75);
+  -webkit-box-shadow: 10px 2px 90px -11px rgba(13,100,76,0.75);
+  -moz-box-shadow: 10px 2px 90px -11px rgba(13,100,76,0.75);
+}
+
+p {
+    padding: 15px; /* Adds space inside the paragraph */
+    margin: 15px 0; /* Adds gap above and below the paragraph */
+    font-size: 1.2rem; /* Sets a larger font size for better readability */
+    line-height: 1.6; /* Improves readability by spacing out the lines */
+    color: #e0e0e0; /* Sets a dark gray color for the text */
+}
+
+  </style>
+</head>
+<body>
+  
+  <div class="navbar">
+    <a href="index.html" class="back-button">Back to Home Page</a>
+    <div class="nav-links">
+      <br>
+      <a href="#male">Male Actors</a>
+      <a href="#female">Female Actors</a>
+    </div>
+  </div>
+  
+  
+  <h1>Best Actors</h1>
+
+  <div id="male" class="section">
+    <h2>⭐ Top Actors</h2>
+
+    <h5>#1: Yoo In-soo</h5>
+    <br>
+    <div class="review">
+    <img class="srcx" src="https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcQriLjMoxysqH52lQbifLpsKiaXq3OEyClb81hzxs_7QUavys2XfBaPJmGeqvOiDHa-uftFLiv2LxhfzkQ" alt="Image 26">
+    <h4>Who?</h4>
+    <p>Yoo In-soo is a South Korean actor who has gained recognition for his roles in various television dramas and films. He is known for his versatility and ability to portray a wide range of characters, from the antagonist Yoon Gwi-nam in the Netflix series All of Us Are Dead to the more lighthearted Park Dang-gu in the fantasy romance drama Alchemy of Souls.</p><br><br>
+    <h4>Why?</h4>
+    <p>Yoo In-soo is a South Korean actor who has gained fame due to his impressive acting skills and ability to portray a wide range of characters. His breakout role as the antagonist Yoon Gwi-nam in the Netflix series "All of Us Are Dead" brought him widespread recognition. This role showcased his ability to embody a complex and morally ambiguous character, captivating audiences with his chilling performance.
+    Following this success, he continued to impress with his versatility in roles like the skilled swordsman Park Dang-gu in the fantasy romance drama "Alchemy of Souls" and the telekinetic Na Jeok-bong in "The Uncanny Counter 2." These diverse roles have solidified his position as a rising star in the South Korean entertainment industry, earning him a dedicated fanbase and critical acclaim.</p>
+  
+  </div>
+
+    <br><br>
+
+      -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    <br><br>
+
+    <h5>#2: Ahn Hyo-seop</h5>
+    <br>
+    <div class="review">
+    <img class="srcx" src="https://asianwiki.com/images/a/a1/Ahn_Hyo-Seop-1995-p1.jpg" alt="Image 26">
+    <h4>Who?</h4>
+    <p>Ahn Hyo-seop, a Canadian-born South Korean actor, has taken the Korean drama scene by storm. After returning to Korea at 17, he pursued acting, even turning down a spot in K-pop group GOT7. His breakout role came in "Still 17" (2018), and he's since starred in hits like "Dr. Romantic 2" and "Business Proposal." His versatility and talent make him a rising star in Korean entertainment.</p><br><br>
+    <h4>Why?</h4>
+    <p>Ahn Hyo-seop has become a rising star in Korean dramas, capturing the hearts of audiences both domestically and internationally. Born in Canada, he returned to South Korea at 17 and embarked on his acting journey, even famously choosing acting over a potential spot in the K-pop group GOT7. His breakout role in "Still 17" (2018) showcased his talent, and he hasn't looked back since, starring in hit dramas like "Dr. Romantic 2" and the wildly popular "Business Proposal." A key reason for his fame is his stellar acting and impressive versatility. He can seamlessly transition from portraying the passionate innocence of a high school student in "Still 17" to the stoic professionalism of a doctor in "Dr. Romantic 2," all with incredible depth and believability. This range keeps viewers engaged and eager to see what roles he tackles next.  Furthermore, his talent has been recognized by the industry. Awards like "Best New Actor" for "Still 17" and acknowledgements for his work in other dramas solidify his reputation as a highly skilled and rising star.  Ahn Hyo-seop's fame isn't just about awards though. He's been fortunate to star in several highly-rated dramas, particularly "Business Proposal," which gained international acclaim through streaming platforms. This exposure has significantly expanded his fanbase, making him a household name not just in Korea but across the globe.  Finally, there's an undeniable charisma that Ahn Hyo-seop brings to the screen. He possesses the ability to deliver comedic timing, heart-wrenching emotional moments, and everything in between, making him captivating to watch. This combination of talent, charisma, and involvement in successful dramas has propelled Ahn Hyo-seop to fame, solidifying his position as a talented and versatile actor with an exciting future in Korean entertainment.</p>
+  
+  </div>
+
+  <br><br>
+
+      -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+  <br><br>
+
+    <h5>#3: Kim Soo-hyun</h5>
+    <br>
+    <div class="review">
+    <img class="srcx" src="https://akm-img-a-in.tosshub.com/indiatoday/images/story/202404/kim-soo-hyun-skips-fathers-wedding-151306947-3x4_0.jpeg?VersionId=M6J.ZEHY332nlMQFh5TleMiYer8K6P.k" alt="Image 26">
+    <h4>Who?</h4> 
+    <p>Kim Soo-hyun, a powerhouse in Korean entertainment, has skyrocketed to become one of the highest-paid actors and a fan favorite.  His meteoric rise started in 2011 with the teen drama "Dream High," showcasing his comedic talent and versatility.  He fearlessly tackles diverse projects, from historical dramas to fantasy romances and thrillers, with believable performances that have earned him numerous awards and solidified him as a top actor.  His influence extends beyond Korea, with his dramas propelling him to Hallyu stardom, making him a household name across Asia and a global icon.  Since his return from military service, he carefully selects roles that challenge him, showcasing his dedication to his craft and ensuring his continued reign as a top Korean actor. <br>
+    <h4>Why?</h4> 
+    <p>Kim Soo-hyun is a South Korean acting powerhouse who has skyrocketed to international fame.  His career exploded in 2011 with the teen drama "Dream High." Unlike your typical teen idol role, he showcased both comedic talent and surprising emotional depth. This versatility launched him into the spotlight and established him as a rising star.
+    Kim Soo-hyun doesn't shy away from challenges. He actively seeks out diverse projects, from historical epics like "Moon Embracing the Sun" to fantastical romances like "You Who Came from the Star." His dedication to each character and his ability to deliver believable performances have earned him critical acclaim and numerous awards.
+    The phenomenal success of dramas like "You Who Came from the Star" propelled him to Hallyu stardom, making him a household name across Asia and a global icon. Even after completing his military service, Kim Soo-hyun remains dedicated to his craft, choosing roles that challenge him and showcase his ever-evolving skills. This dedication ensures his continued reign as a top Korean actor.</p>
+  </div>
+</div>
+
+
+
+<div id="female" class="section">
+  <h2>⭐ Top Actress</h2>
+
+  <h5>#1: Go Yoon Jung</h5>
+  <br>
+  <div class="review">
+  <img class="srcx" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQC1llE2u6JRvkeQaW6JM_Su2dLxK1sd-wq7w&s" alt="Image 26">
+  <h4>Who?</h4>
+  <p>Go Yoon-jung is a South Korean actress who has quickly risen to fame for her captivating performances and stunning visuals.
+  She made her acting debut in the television series "He Is Psychometric" (2019) and gained wider recognition for her supporting role in the Netflix series "Sweet Home" (2020). However, it was her leading role in the fantasy romance drama "Alchemy of Souls" (2022-2023) that catapulted her to stardom.</p>
+  <h4>Why?</h4>
+  <p>Go Yoon-jung's fame stems from her exceptional acting talent and captivating on-screen presence. She has consistently delivered compelling performances in a variety of roles, showcasing her versatility and dedication to her craft. 
+  Her breakthrough role as Naksu in the fantasy romance drama "Alchemy of Souls" garnered widespread acclaim, solidifying her position as a rising star in the South Korean entertainment industry. Her portrayal of the skilled assassin trapped in another body captivated audiences with its depth and emotional resonance. 
+  Following this success, she continued to impress with her role as Jang Hee-soo in the superhero drama "Moving," where she portrayed a high school student with extraordinary abilities. Go Yoon-jung's talent, coupled with her undeniable charisma and stunning visuals, has made her one of the most sought-after actresses in South Korea, and her star continues to shine brightly.</p>
+</div>
+
+<br>  <br>
+
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<br>  <br>
+
+  <h5>#2: Kim Sejeong</h5>
+  <br>
+  <div class="review">
+  <img class="srcx" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/20240202_Kim_Se-jeong_%EA%B9%80%EC%84%B8%EC%A0%95_03.jpg/220px-20240202_Kim_Se-jeong_%EA%B9%80%EC%84%B8%EC%A0%95_03.jpg" alt="Image 26">
+  <h4>Who?</h4>
+  <p>Kim Sejeong, or Sejeong to fans, is a rising Korean star captivating audiences with her singing and acting talents.  She rose to fame on the show "Produce 101," landing a spot in the project group I.O.I.  Even before their disbandment, Sejeong showcased her ambition with a solo debut and a music show win, a record for fastest soloists.  She continues to release music, exploring themes of self-discovery and resonating with fans. 
+  Sejeong's not just a singer though.  She's a blossoming actress who impressed in her debut lead role in "School 2017."  Since then, she's starred in diverse shows like "The Uncanny Counter" and "Business Proposal," solidifying her versatility.  Award recognition for both singing and acting highlights her potential.  With her vocals, acting skills, and charisma, Sejeong is a force to be reckoned with in Korean entertainment.  She's here to stay.</p> <br><br>
+  <h4>Why?</h4>
+  <p>Kim Sejeong gained fame primarily through her participation in the South Korean survival reality show "Produce 101" in 2016, where her talent, charm, and vocals garnered widespread recognition, leading her to finish in second place overall. This exposure propelled her into the project girl group I.O.I, further boosting her popularity and establishing her as a notable figure in the K-pop industry. Known for her powerful vocals and versatility, Sejeong has continued to showcase her singing abilities through various performances and solo releases. In addition to her musical talents, she has also made a name for herself in acting, appearing in dramas such as "School 2017," "I Wanna Hear Your Song," and "The Uncanny Counter," demonstrating her range as an entertainer. Beyond her artistic endeavors, Sejeong has become a sought-after celebrity for endorsements and brand partnerships, solidifying her status as a prominent and multifaceted entertainer in South Korea.</p>
+</div>
+
+    <br>  <br>
+
+    -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+    <br>  <br>
+  
+      <h5>#3: Yeom Hye-ran</h5>
+      <br>
+      <div class="review">
+      <img class="srcx" src="https://ntvb.tmsimg.com/assets/assets/1494781_v9_aa.jpg" alt="Image 26">
+      <h4>Who?</h4>
+      <p>South Korean actress Yeom Hye-ran has carved a successful path across film, television, and theater stages. Born in 1976, she honed her skills in theater productions before transitioning to the screen in 2003. While she's known for her captivating supporting roles in a diverse range of projects like "Memories of Murder" and "Guardian: The Lonely and Great God," she also delivered a critically acclaimed lead performance as a single mother in the film "Life," winning her the Best Actress award at the Jeonju International Film Festival. Most recently, her portrayal in the revenge drama "The Glory" earned her a nomination for Best Supporting Actress at the Baeksang Arts Awards.</p> <br><br>
+      <h4>Why?</h4>
+      <p>South Korean actress Yeom Hye-ran has risen to prominence thanks to a remarkable combination of talents. Her versatility allows her to shine in comedic and dramatic roles alike, breathing life into each character with depth and nuance. This consistent ability to deliver powerful performances has earned her the respect and admiration of both audiences and directors.
+      Furthermore, Yeom Hye-ran boasts a long and impressive career. Starting in theater productions in 1999 and transitioning to screen acting in 2003, she has become a prolific force in the Korean entertainment industry. Her frequent appearances in popular dramas and films have made her a familiar and beloved face, consistently gracing our screens with her talent.
+      While Yeom Hye-ran is widely recognized for her captivating supporting roles, she has also proven she can carry a film on her own. Her critically acclaimed lead performance in "Life" earned her the prestigious Best Actress award at the Jeonju International Film Festival, solidifying her reputation as a highly skilled and impactful performer.
+      Adding to her acclaim, Yeom Hye-ran's recent nomination for Best Supporting Actress in "The Glory" further reinforces her talent and keeps her in the public eye. Awards like this serve as a testament to her significant contributions to Korean cinema and television.
+      In a nutshell, Yeom Hye-ran's dedication to her craft, her impressive range, and her consistent ability to deliver unforgettable performances across various genres have cemented her fame as a treasured actress in the Korean entertainment landscape.</p>
+</div>
+</div>
+
+
+<div class="copyright" id="copyright">
+  Copyright © 2025 Mws. All Rights Reserved.<br>
+  <a href="https://discord.gg/ttqKDje7" target="_blank">Contact Me!</a>
+</div>
+
+  <div id="scrollToTopBtn">&#8679;</div>
+
+<script>
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  // Show the button when the user scrolls down 100px
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
+  });
+
+  // Smooth scroll to the top when the button is clicked
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+</script>
+
+<script>
+  // JavaScript to handle the filter functionality
+  function filterStars(starRating) {
+    // Hide all sections first
+    const allSections = document.querySelectorAll('.section');
+    allSections.forEach(section => {
+      section.style.display = 'none';
+    });
+
+    // Show the selected star rating section
+    const selectedSection = document.getElementById('stars-' + starRating);
+    if (selectedSection) {
+      selectedSection.style.display = 'block';
+    }
+  }
+</script>
+
+<script>
+// Add click animation to nav links and smooth scrolling
+document.querySelectorAll('.navbar .nav-links a').forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    
+    // Add animation class to clicked link
+    this.classList.add('clicked');
+    
+    // Remove 'clicked' class from all links after animation completes
+    setTimeout(() => {
+      this.classList.remove('clicked');
+    }, 300);
+    
+    // Smooth scroll to the section the link points to
+    const targetId = this.getAttribute('href').substring(1); // Get target section id
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

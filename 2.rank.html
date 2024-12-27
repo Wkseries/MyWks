@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Drama Reviews</title>
+  <style>
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@400;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  background: linear-gradient(135deg, #121212, #1c1c1c, #2f2f2f, #121212);
+  background-size: 300% 300%;
+  color: #fff;
+  padding: 40px 50px;
+  overflow-x: hidden;
+  opacity: 0;
+  animation: gradientAnimation 6s ease-in-out infinite, fadeInBody 1.5s forwards;
+}
+
+/* Animation for background gradient */
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Existing fade-in animation for body */
+@keyframes fadeInBody {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Global styles for titles */
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0;
+  animation: fadeInTitle 1s forwards;
+}
+
+h1 {
+  font-size: 3.5rem;
+  margin-bottom: 40px;
+  position: relative;
+  animation-delay: 0.5s;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #ff4b4b;
+  border-radius: 2px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  position: relative;
+  animation-delay: 0.7s;
+}
+
+h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  height: 3px;
+  background-color: #ff4b4b;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+h2:hover::after {
+  width: 100%; /* Underline gets longer on hover */
+  background-color: #ffcb42;
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Section styling */
+.section {
+  padding: 50px 40px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+  margin-bottom: 60px;
+  opacity: 0;
+  animation: fadeInSection 1.5s forwards;
+}
+
+@keyframes fadeInSection {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+  justify-items: center;
+  margin-top: 40px;
+}
+
+.image-box {
+  position: relative;
+  width: 100%;
+  max-width: 180px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
+  background-color: #1d1d1d;
+}
+
+.image-box:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.5);
+  opacity: 0.9;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease; /* Add filter transition */
+  filter: brightness(60%); /* Lower brightness by default */
+}
+
+.image-box:hover img {
+  filter: brightness(110%); /* Increase brightness on hover */
+}
+
+.title-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  color: #ffcb42;
+  text-align: center;
+  padding: 15px 10px;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 0 0 20px 20px;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.image-box:hover .title-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.title-overlay:hover {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.85);
+  transform: translateY(-5px);
+}
+
+/* Scroll-to-Top Button */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background-color: #ff4b4b;
+  color: #fff;
+  font-size: 24px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px); /* A more subtle bounce */
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+#scrollToTopBtn:hover {
+  background-color: #ffcb42;
+  transform: scale(1.1);
+}
+
+#scrollToTopBtn.visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 15px 30px;
+  border-radius: 8px;
+}
+
+.navbar .back-button {
+  background-color: #ff4b4b;
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
+}
+
+.navbar .back-button:hover {
+  background-color: #ffcb42;
+  transform: scale(1.05);
+}
+
+/* Styling for the nav links container */
+.navbar .nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+/* Styling for each nav link */
+.navbar .nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: color 0.3s ease, transform 0.3s ease;
+  position: relative;
+}
+
+/* Hover effect for nav links */
+.navbar .nav-links a:hover {
+  color: #ffcb42;
+  transform: translateY(-2px); /* Slight lift effect on hover */
+}
+
+/* Add smooth scrolling to the page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Add click animation effect to nav links */
+.navbar .nav-links a.clicked {
+  animation: clickAnimation 0.3s ease;
+  color: #ff4b4b; /* Change color when clicked */
+}
+
+/* Keyframes for the click animation */
+@keyframes clickAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Slightly grow the link */
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.copyright {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #ebebeb;
+  padding: 5px;
+  width: 100%;
+  margin-top: 5px;
+  text-decoration: none;
+}
+
+.copyright a {
+  color: #ffd700;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.copyright a:hover {
+  color: #ff4b4b;
+}
+
+/* Smooth transition for scrolling */
+.scroll-to-target {
+  opacity: 0;
+  pointer-events: none;
+}
+
+h1 {
+  margin-top: 50px;
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 15px;
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Smaller font size for h1 */
+  }
+
+  h2 {
+    font-size: 1.4rem; /* Smaller font size for h2 */
+  }
+
+  /* Making the underline under h2 longer */
+  h2::after {
+    width: 75%; /* Increased width of the underline */
+    background-color: #ff4b4b;
+  }
+
+  .section {
+    padding: 30px 20px;
+  }
+
+  .image-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 images per row on mobile */
+    gap: 10px;
+  }
+
+  .navbar {
+    padding: 5px 5px;
+    flex-direction: column; /* Stack navbar items vertically */
+    align-items: flex-start; /* Align navbar items to the left */
+  }
+  .navbar .back-button {
+    padding: 8px 15px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  div.nav-links {
+    display: none !important; /* Force hiding even if other rules exist */
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+  
+  <div class="navbar">
+    <a href="index.html" class="back-button">Back to Home Page</a>
+    <div class="nav-links">
+      <br>
+      <a href="#10-stars">10 Stars</a>
+      <a href="#9-stars">9 Stars</a>
+      <a href="#8-stars">8 Stars</a>
+      <a href="#7-stars">7 Stars</a>
+      <a href="#6-stars">6 Stars</a>
+      <a href="#5-stars">5 Stars</a>
+    </div>
+  </div>
+  
+  
+  <h1>Series Stars</h1>
+
+  <div id="10-stars" class="section">
+    <h2>⭐ 10 Stars Series</h2>
+    <div class="image-container">
+      <a href="theglory.html" target="_blank" class="image-box">
+        <img src="https://image.tmdb.org/t/p/original/uUM4LVlPgIrww07OoEKrGWlS1Ej.jpg" alt="The Glory" loading="lazy">
+        <div class="title-overlay">The Glory</div>
+      </a>
+      <a href="Tomorrow.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BZWU5YWI4MzAtNjUwYi00MmFhLWI4MzItOWE5OWZmMjAxMGZmXkEyXkFqcGdeQXVyNDg3OTE3MzU@._V1_FMjpg_UY2137_.jpg" alt="Tomorrow" loading="lazy">
+        <div class="title-overlay">Tomorrow</div>
+      </a>
+      <a href="BrandingInSeongsu.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BNzZhMWJmZDUtZmM1NC00NmNhLThlM2MtYWU2ZmRkYWEwMmJkXkEyXkFqcGdeQXVyNjI4NDY5ODM@._V1_.jpg" alt="Branding In Seongsu" loading="lazy">
+        <div class="title-overlay">Branding In Seongsu</div>
+      </a>
+      <a href="QueenOfTheRing.html" target="_blank" class="image-box">
+        <img src="https://media.themoviedb.org/t/p/w500/3Fh0F9tlq1ly788RnZRPoreAhSY.jpg" alt="Queen Of The Ring" loading="lazy">
+        <div class="title-overlay">Queen Of The Ring</div>
+      </a>
+      <a href="QueenOfTears.html" target="_blank" class="image-box">
+        <img src="https://i.pinimg.com/736x/0b/2e/9f/0b2e9f2a20b251450178800397c419b2.jpg" alt="Queen Of Tears" loading="lazy">
+        <div class="title-overlay">Queen Of Tears</div>
+      </a>
+      <a href="TheUncannyCounter.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/I/81HWMykk35L._AC_UF894,1000_QL80_.jpg" alt="The Uncanny Counter" loading="lazy">
+        <div class="title-overlay">The Uncanny Counter</div>
+      </a>
+      <a href="GausElectronics.html" target="_blank" class="image-box">
+        <img src="https://blog.asianwiki.com/wp-content/uploads/2022/08/Gaus_Electronics-p1.jpeg" alt="Gaus Electronics" loading="lazy">
+        <div class="title-overlay">Gaus Electronics</div>
+      </a>
+      <a href="MrQueen.html" target="_blank" class="image-box">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfAxNsTw82CqGojZ8FTtan18P7eYfW478_Pg&s" alt="Mr Queen" loading="lazy">
+        <div class="title-overlay">Mr Queen</div>
+      </a>
+      <a href="LovelyRunner.html" target="_blank" class="image-box">
+        <img src="https://asianwiki.com/images/3/39/Lovely_Runner-p1.jpg" alt="Lovely Runner" loading="lazy">
+        <div class="title-overlay">Lovely Runner</div>
+      </a>
+      <a href="20thcenturygirl.html" target="_blank" class="image-box">
+        <img src="https://i.pinimg.com/736x/32/62/e8/3262e801fa7a19fad9e206bffde75950.jpg" alt="20th Century Girl" loading="lazy">
+        <div class="title-overlay">20th Century Girl</div>
+      </a>
+      <a href="sweethome.html" target="_blank" class="image-box">
+        <img src="https://images.ctfassets.net/4cd45et68cgf/5hH4mcxHOsxv3P4LLUq8FK/7424a17b008b51632d274c488ee1791e/en_us_sws3_main_ensemble_-_vertical_vertical_27x40_rgb_pre_1.jpg?w=1200" alt="Sweet Home Season 3" loading="lazy">
+        <div class="title-overlay">Sweet Home 3</div>
+      </a>
+      <a href="AlchemyOfSouls.html" target="_blank" class="image-box">
+        <img src="https://image.tmdb.org/t/p/original/q2IiPRSXPOZ6qVRj36WRAYEQyHs.jpg" alt="Alchemy Of Souls" loading="lazy">
+        <div class="title-overlay">Alchemy Of Souls</div>
+      </a>
+      <a href="StrongGirlBongSoon.html" target="_blank" class="image-box">
+        <img src="https://fr.web.img4.acsta.net/pictures/23/01/17/09/16/2653062.jpg" alt="Strong Girl BongSoon" loading="lazy">
+        <div class="title-overlay">Strong Girl BongSoon</div>
+      </a>
+      <a href="TheFrog.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BZGM4Y2VhYjMtZGMzYS00YTI5LTk5NWUtMTcxNTJlOGMyZGE2XkEyXkFqcGc@._V1_.jpg" alt="The Frog" loading="lazy">
+        <div class="title-overlay">The Frog</div>
+      </a>
+      <a href="NoGainNoLove.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BZjYwZjVjODUtNjcwNS00NjJmLWE1ODItZTRhOTU3Y2YwMGE0XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="No Gain No Love" loading="lazy">
+        <div class="title-overlay">No Gain No Love</div>
+      </a>
+    </div>
+  </div>
+
+
+  <div id="9-stars" class="section">
+    <h2>⭐ 9 Stars Series</h2>
+    <div class="image-container">
+      <a href="bloodhounds.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BMmY3ZDZhNDUtN2NkMy00MDZhLTk5MjQtOTMzNDI2YjQwY2FmXkEyXkFqcGdeQXVyMTMzNzIyNDc1._V1_.jpg" alt="Image 15" loading="lazy">
+        <div class="title-overlay">BloodHounds</div>
+      </a>
+      <a href="wtwoworlds.html" target="_blank" class="image-box">
+        <img src="https://image.tmdb.org/t/p/original/rBuCoS0VB9M6zkEUCvnVrfeF0J.jpg" alt="W" loading="lazy">
+        <div class="title-overlay">W</div>
+      </a>
+      <a href="bigmouth.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BOWFhYzhkMjgtNjhjNC00NDUwLWE2M2MtODczYTliYTI4OWJkXkEyXkFqcGdeQXVyNDQxOTAyNA@@._V1_.jpg" alt="Big Mouth" loading="lazy">
+        <div class="title-overlay">Big Mouth</div>
+      </a>
+      <a href="BusinessProposal.html" target="_blank" class="image-box">
+        <img src="https://i.pinimg.com/originals/be/b0/18/beb018297063a92e70a369875cb4842f.jpg" alt="Business Proposal">
+        <div class="title-overlay">Business ProposaL</div>
+      </a>
+      <a href="What'sWrongWithSecretaryKim.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BMGM2ODk3MTItN2ZkOS00ODMzLTg1ZjgtMWI3Y2U5ZDNmMzc0XkEyXkFqcGdeQXVyNjI4NDY5ODM@._V1_FMjpg_UX1000_.jpg" alt="What's Wrong With Secretary Kim" loading="lazy">
+        <div class="title-overlay">What's Wrong With Secretary Kim</div>
+      </a>
+      <a href="Vincenzo.html" target="_blank" class="image-box">
+        <img src="https://rashkavip.com/wp-content/uploads/2023/08/qbkSS1cTjT4DzIwD44bdhTuYgdT-354x520.jpg" alt="Vincenzo" loading="lazy">
+        <div class="title-overlay">Vincenzo</div>
+      </a>
+      <a href="KingTheLand.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BZjE5ZDJmZGItMDRkNi00YjAxLTliYjQtYjBjZjk4Yjk4NjdhXkEyXkFqcGdeQXVyMTUzOTcyODA5._V1_.jpg" alt="King The Land" loading="lazy">
+        <div class="title-overlay">King The Land</div>
+      </a>
+      <a href="TheUncannyCounter.html" target="_blank" class="image-box">
+        <img src="https://image.tmdb.org/t/p/original/bsbuXbQqryQ8aJlwXFkFXbrYko1.jpg" alt="Image 13" loading="lazy">
+        <div class="title-overlay">Uncanny Counter 2</div>
+      </a>
+      <a href="StrongGirlNamSoon.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BODU5NDUxMGEtYzg5OS00NzBjLWFkZjctMzE5YzczOTU2ZGU0XkEyXkFqcGdeQXVyNjI4NDY5ODM@._V1_.jpg" alt="Strong Girl NamSoon" loading="lazy">
+        <div class="title-overlay">Strong Girl NamSoon</div>
+      </a>
+      <a href="AShopForKillers.html" target="_blank" class="image-box">
+        <img src="https://fr.web.img4.acsta.net/pictures/24/01/17/09/22/4935737.jpg" alt="A Shop For Killers" loading="lazy">
+        <div class="title-overlay">A Shop For Killers</div>
+      </a>
+    </div>    
+  </div>
+
+
+
+  <div id="8-stars" class="section">
+    <h2>⭐ 8 Stars Series</h2>
+    <div class="image-container">
+      <a href="sweethome.html" target="_blank" class="image-box">
+        <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p19174483_b_v8_aa.jpg" alt="Image 14" loading="lazy">
+        <div class="title-overlay">Sweet Home</div>
+      </a>
+      <a href="TrueBeauty.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BNjk3NDk3MDEtMTU2OS00NTFiLWJkOWMtYTA2YjJlMTMyYTk1XkEyXkFqcGdeQXVyNDY5MjMyNTg@._V1_FMjpg_UX1000_.jpg" alt="Image 16" loading="lazy">
+        <div class="title-overlay">True Beauty</div>
+      </a>
+      <a href="It'sOkaytoNotBeOkay.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BYTk0Nzk5ZWYtYTNlZi00YjBjLWJhYjctMWMwMmYyMDA5ZjJmXkEyXkFqcGdeQXVyNDY5MjMyNTg@._V1_.jpg" alt="Image 17" loading="lazy">
+        <div class="title-overlay">Its Okay Not To Be Okay</div>
+      </a>
+      <a href="DoctorSlump.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BZWZhMjI4MzYtYjY2Mi00ZmNkLWFkYjMtZjc3NzRiZDg2NjA0XkEyXkFqcGc@._V1_.jpg" alt="Tale Of The Nine Tailed" loading="lazy">
+        <div class="title-overlay">Doctor Slump</div>
+      </a>
+      <a href="CrashLandingOnYou.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BMzRiZWUyN2YtNDI4YS00NTg2LTg0OTgtMGI2ZjU4ODQ4Yjk3XkEyXkFqcGdeQXVyNTI5NjIyMw@@._V1_FMjpg_UX1000_.jpg" alt="Image 20" loading="lazy">
+        <div class="title-overlay">Crash Landing On You</div>
+      </a>
+    </div>    
+  </div>
+
+
+
+  <div id="7-stars" class="section">
+    <h2>⭐ 7 Stars Series</h2>
+    <div class="image-container">
+      <a href="mydemon.html" target="_blank" class="image-box">
+        <img src="https://image.tmdb.org/t/p/original/zthWx1TKEXy9MOfedBaJ0ZLr8vn.jpg" alt="Image 18" loading="lazy">
+        <div class="title-overlay">My Demon</div>
+      </a>
+      <a href="goodbadmother.html" target="_blank" class="image-box">
+        <img src="https://image.tmdb.org/t/p/original/fvcEgIUZMks1cZPgZTnIHqUArtN.jpg" alt="Image 19" loading="lazy">
+        <div class="title-overlay">Good Bad Mother</div>
+      </a>
+      <a href="lovealarm.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BYzc0N2VmYjQtY2Y0Mi00NzBhLTk3YjctNDI4MTU2YWJkYWFmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_FMjpg_UX1000_.jpg" alt="Image 19" loading="lazy">
+        <div class="title-overlay">Love Alarm</div>
+      </a>
+      <a href="marrymyhusband.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BMDlhODA1NGEtMDcxYi00YTdkLWFiZTktOTQyYTNkN2U1NzAyXkEyXkFqcGdeQXVyMTI1OTY3MzM3._V1_.jpg" alt="Image 19" loading="lazy">
+        <div class="title-overlay">Marry My husband</div>
+      </a>
+      <a href="Abyss.html" target="_blank" class="image-box">
+        <img src="https://wallpapercave.com/wp/wp12064035.jpg" alt="Abyss" loading="lazy">
+        <div class="title-overlay">Abyss</div>
+      </a>
+      <a href="18Again.html" target="_blank" class="image-box">
+        <img src="https://i.pinimg.com/originals/a6/88/47/a6884717a8a52dfa080f5659f76d8da1.jpg" alt="18 Again" loading="lazy">
+        <div class="title-overlay">18 Again</div>
+      </a>
+      <a href="taleoftheninetailed.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BMDI1MzI0NGItODViMC00ZjdlLWE5NWEtM2U4ZDQyZmNhNDk0XkEyXkFqcGdeQXVyNDI3NjU1NzQ@._V1_.jpg" alt="Tale Of The Nine Tailed" loading="lazy">
+        <div class="title-overlay">Tale Of The Nine Tailed</div>
+      </a>
+      <a href="WeightliftingFairyKimBokJoo.html" target="_blank" class="image-box">
+        <img src="https://fr.web.img6.acsta.net/pictures/23/01/09/11/39/0276741.jpg" alt="Weightlifting Fairy Kim Bok Joo" loading="lazy">
+        <div class="title-overlay">Weightlifting Fairy Kim Bok Joo</div>
+      </a>
+    </div>
+    
+  </div>
+
+
+  <div id="6-stars" class="section">
+    <h2>⭐ 6 Stars Series</h2>
+    <div class="image-container">
+      <a href="ItaewonClass.html" target="_blank" class="image-box">
+        <img src="https://image.tmdb.org/t/p/original/ruwAlQ76fR1nZb3oWQanDfVI3Rc.jpg" alt="Image 23">
+        <div class="title-overlay">Itaewon Class</div>
+      </a>
+      <a href="sweethome.html" target="_blank" class="image-box">
+        <img src="https://preview.redd.it/netflix-sweet-home-2-character-poster-premieres-december-1-v0-54dv4bwr1f0c1.jpg?width=640&crop=smart&auto=webp&s=0578f5ae22b04f69a023acf897b6c773ef8d0666" alt="Sweet Home 2">
+        <div class="title-overlay">Sweet Home 2</div>
+      </a>
+    </div>    
+  </div>
+
+
+  <div id="5-stars" class="section">
+    <h2>⭐ 5 Stars Series</h2>
+    <div class="image-container">
+      <a href="lovealarm.html" target="_blank" class="image-box">
+        <img class="srcs" src="https://resizing.flixster.com/vohHWi5n0SvfcSbRmHTXBQh4nWY=/ems.cHJkLWVtcy1hc3NldHMvdHZzZWFzb24vUlRUVjg0OTQwMC53ZWJw" alt="Image 24">
+        <div class="title-overlay">Love Alarm 2</div>
+      </a>
+      <a href="DrStranger.html" target="_blank" class="image-box">
+        <img src="https://i.pinimg.com/736x/49/e2/bc/49e2bcebe2990a1b7453851e84e6ae7a.jpg" alt="Image 25">
+        <div class="title-overlay">Dr Stranger</div>
+      </a>
+      <a href="moving.html" target="_blank" class="image-box">
+        <img src="https://m.media-amazon.com/images/M/MV5BN2IxOGQ1OGQtODNmMy00ZDJkLTg3ZTQtOTY4YTJjMjFjZTMzXkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg" alt="Image 26">
+        <div class="title-overlay">Moving</div>
+      </a>
+    </div>    
+  </div>
+
+  </div>
+
+  <div class="copyright">
+    &copy; 2024 Drama Reviews. All rights reserved. <a href="https://example.com">Contact Me.</a>
+  </div>
+
+  <div id="scrollToTopBtn">&#8679;</div>
+
+<script>
+  const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+  // Show the button when the user scrolls down 100px
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      scrollToTopBtn.classList.add('visible');
+    } else {
+      scrollToTopBtn.classList.remove('visible');
+    }
+  });
+
+  // Smooth scroll to the top when the button is clicked
+  scrollToTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+</script>
+
+<script>
+  // JavaScript to handle the filter functionality
+  function filterStars(starRating) {
+    // Hide all sections first
+    const allSections = document.querySelectorAll('.section');
+    allSections.forEach(section => {
+      section.style.display = 'none';
+    });
+
+    // Show the selected star rating section
+    const selectedSection = document.getElementById('stars-' + starRating);
+    if (selectedSection) {
+      selectedSection.style.display = 'block';
+    }
+  }
+</script>
+
+<script>
+// Add click animation to nav links and smooth scrolling
+document.querySelectorAll('.navbar .nav-links a').forEach(link => {
+  link.addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default link behavior
+    
+    // Add animation class to clicked link
+    this.classList.add('clicked');
+    
+    // Remove 'clicked' class from all links after animation completes
+    setTimeout(() => {
+      this.classList.remove('clicked');
+    }, 300);
+    
+    // Smooth scroll to the section the link points to
+    const targetId = this.getAttribute('href').substring(1); // Get target section id
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
