@@ -51,7 +51,7 @@ a:hover {
   margin: 20px 0;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h5 {
   font-family: 'Roboto', sans-serif;
   font-weight: 700;
   text-align: center;
@@ -63,6 +63,11 @@ h1, h2, h3 {
 
 h1 {
   font-size: 40px;
+  margin-bottom: 20px;
+}
+
+h5 {
+  font-size: 25px;
   margin-bottom: 20px;
 }
 
@@ -260,10 +265,10 @@ h4 {
     margin-bottom: 20px; /* Adjust bottom margin */
   }
 
-  /* 4. Make the stars in <h1> appear on the same line with a smaller size */
-  h1 span {
-    font-size: 1.2rem; /* Adjust stars font size */
-    white-space: nowrap; /* Ensure stars stay on the same line */
+  h5 {
+    font-size: 1.1rem; /* Make font size smaller */
+    margin-top: 20px; /* Adjust top margin */
+    margin-bottom: 20px; /* Adjust bottom margin */
   }
 
   /* 5. Add gap above and below <h4> */
