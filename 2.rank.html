@@ -397,6 +397,31 @@ h1 {
   }
 }
 
+@media screen and (max-width: 480px) {
+  .nav-links {
+    display: grid; /* Use grid layout for proper row/column control */
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    grid-template-rows: repeat(2, auto); /* 2 rows only */
+    gap: 1rem; /* Space between buttons */
+    justify-items: center; /* Center the buttons horizontally */
+    height: calc(2 * (auto + 1rem)); /* Ensure the container height is based on 2 rows */
+  }
+
+  .nav-links a {
+    padding: 0.5rem 1rem; /* Button-like padding */
+    background-color: #ff9e3d; /* Warm orange color */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    text-align: center; /* Center the text inside the buttons */
+  }
+
+  .nav-links a:hover {
+    background-color: #ff7b2a; /* Darker orange on hover */
+  }
+}
+
+
   </style>
 </head>
 <body>
