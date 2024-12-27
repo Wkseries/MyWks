@@ -396,12 +396,10 @@ h1 {
 
 @media screen and (max-width: 480px) {
   .nav-links {
-    display: grid; /* Use grid layout for proper row/column control */
+    display: grid; /* Use grid layout for rows and columns */
     grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    grid-template-rows: repeat(2, auto); /* 2 rows only */
-    gap: 1rem; /* Space between buttons */
-    justify-items: center; /* Center the buttons horizontally */
-    height: calc(2 * (auto + 1rem)); /* Ensure the container height is based on 2 rows */
+    gap: 1rem; /* Space between links */
+    justify-items: center; /* Center links horizontally within each cell */
   }
 
   .nav-links a {
@@ -410,13 +408,15 @@ h1 {
     border-radius: 5px; /* Rounded corners */
     text-decoration: none; /* Remove underline */
     font-weight: bold; /* Bold text */
-    text-align: center; /* Center the text inside the buttons */
+    text-align: center; /* Center text inside links */
+    box-sizing: border-box; /* Include padding and border in size */
   }
 
   .nav-links a:hover {
     background-color: #ff7b2a; /* Darker orange on hover */
   }
 }
+
 
 
   </style>
