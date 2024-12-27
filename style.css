@@ -278,6 +278,7 @@ h4 {
 
   h4 {
     font-size: 20px; /* Adjusted heading size */
+    margin-top: 10px;
   }
 
   .section, .sec {
@@ -311,11 +312,30 @@ h4 {
 
   .home-link {
     font-size: 16px;
-    padding: 8px 16px;
+    padding: 20px 30px;
+    margin-bottom: 10px;
   }
 
   .h {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    animation: textGlow 1.5s ease-in-out infinite alternate;
+    color: #e2e2e2;
+    margin-bottom: 40px;
     font-size: 30px;
+    margin-bottom: 20px;
+    position: relative; /* Needed for the pseudo-element approach */
+  }
+  
+  .h::after {
+    content: '';
+    position: absolute;
+    bottom: -10px; /* Adjust the position of the underline */
+    left: 20%; /* Adjust for centered appearance */
+    width: 70%; /* Width of the underline relative to the text */
+    height: 2px; /* Thickness of the underline */
+    background-color: #e2e2e2; /* Color of the underline */
   }
 
   .copyright {
