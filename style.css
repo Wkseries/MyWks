@@ -265,11 +265,13 @@ h4 {
 
   /* 5. Add gap above and below <h4> */
   h4 {
+    font-size: 1.2rem; /* Make the h4 font size smaller */
     margin-top: 15px; /* Adjust top margin */
     margin-bottom: 15px; /* Adjust bottom margin */
   }
 
   .h {
+    font-size: 1.5rem; /* Make the .h font size smaller */
     margin-top: 15px; /* Adjust top margin */
     margin-bottom: 15px; /* Adjust bottom margin */
   }
