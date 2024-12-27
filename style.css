@@ -357,10 +357,6 @@ h4 {
     border-radius: 5px;
     background-color: #e2e2e2;
     color: #333;
-    width: 80%; /* Adjust width if necessary */
-  }
-
-  .home-link:hover {
-    background-color: #dcdcdc; /* Adjust hover effect */
+    width: 60%; /* Adjust width if necessary */
   }
 }
