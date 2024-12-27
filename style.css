@@ -81,7 +81,6 @@ h3 {
   margin-bottom: 20px;
 }
 
-
 h4 {
   font-size: 22px;
   font-weight: bold;
@@ -328,8 +327,8 @@ h4 {
   }
 
   h4 {
-    font-size: 1rem !important; /* Adding !important to force the change */
-    margin-top: 15px; 
+    font-size: 1rem !important; /* Force the change using !important */
+    margin-top: 15px;
     margin-bottom: 15px;
   }
 
