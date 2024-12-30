@@ -575,20 +575,10 @@ button {
 }
 }
 
-
-/* Media Query for 480px screens or smaller */
 @media (max-width: 480px) {
-  .spotify-iframe {
-      width: 95%; /* Set iframe to 95% of the width */
-      margin-left: 2.5%; /* 2.5% left margin */
-      margin-right: 2.5%; /* 2.5% right margin */
-      height: 250px; /* Adjust height for mobile */
-  }
-
   .logo {
-      position: fixed; /* Fix the logo to the top */
-      top: 10px; /* Adjust the top margin */
+      top: 10px; /* Adjust logo position for smaller screens */
       left: 50%;
-      transform: translateX(-50%); /* Center horizontally */
+      transform: translateX(-50%);
   }
-}
+}  
