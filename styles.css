@@ -441,93 +441,20 @@ body {
   }
 
   h2::after {
-    width: 70%; /* Consistent underline width */
+    width: 70%; /* Increase the underline width */
   }
 
   .i {
-    display: grid; /* Grid layout */
+    display: grid; /* Use grid layout instead of flexbox */
     grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 10px;
-    margin-left: 10px;
+    gap: 10px; /* Space between images */
+    margin-left: 10px; /* Add some margin from the left */
   }
 
   .i img {
-    width: 100%; /* Set width relative to parent container */
-    max-width: 100%; /* Prevent overflow */
-    height: auto;
-    margin-right: 0;
-  }
-
-  .iframe-container,
-  .slide,
-  .s {
-    width: 100%; /* Consistent width */
-    max-width: 100%; /* Prevent overflow */
-    border: none;
-  }
-
-  .slide {
-    height: auto; /* Let content determine height */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: visible;
-  }
-
-  .copyright {
-    font-size: 1rem;
-    padding: 10px;
-  }
-
-  .copyright a {
-    font-size: 0.9rem;
-  }
-
-  .wrapper {
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .logo {
-    margin-bottom: 50px;
-    display: flex;
-    justify-content: center;
-  }
-
-  h1 {
-    font-size: 40px;
-    margin-top: 150px;
-    text-align: center;
-  }
-
-  .event {
-    font-size: 14px;
-    text-align: center;
-  }
-
-  .t {
-    font-size: 50px;
-    gap: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .weather-icon {
-    font-size: 35px;
-  }
-
-  .temperature {
-    font-size: 28px;
-  }
-
-  .spotify-iframe {
-    width: 90%; /* Set width to 90% for consistency */
-    margin: 0 auto; /* Center horizontally */
-    height: 300px; /* Adjust for medium screens */
+    width: 90%; /* Make images a bit smaller */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0; /* Reset margin right */
   }
 }
 
@@ -538,351 +465,278 @@ body {
   }
 
   h2::after {
-    width: 80%; /* Consistent underline width */
+    width: 80%; /* Increase the underline width */
   }
 
   .i {
-    grid-template-columns: repeat(3, 1fr); /* Maintain layout */
-    gap: 10px;
-    margin-left: 10px;
+    display: grid; /* Use grid layout instead of flexbox */
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 10px; /* Space between images */
+    margin-left: 10px; /* Add some margin from the left */
   }
 
   .i img {
-    width: 100%; /* Full width within parent container */
-    max-width: 100%;
-    height: auto;
+    width: 85%; /* Make images smaller on smaller screens */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0; /* Reset margin right */
   }
+}
 
+@media (max-width: 480px) {
   .iframe-container {
-    height: 180px;
+    width: 100%;  /* Make iframe responsive */
+    height: 180px; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure iframe doesn't overflow */
+    border: none; /* Remove border for a cleaner look */
   }
 
   .slide {
-    height: auto;
+    width: 100%;
+    height: 1500px; /* Make the container take up the full height of the viewport */
+    max-width: 100%; /* Prevent container from being larger than the viewport */
+    display: flex; /* Align items properly */
+    flex-direction: column; /* Stack iframes vertically */
+    justify-content: center; /* Center content vertically */
+    overflow: visible; /* Allow the content to overflow if necessary */
+  }
+  
+  .s {
+    width: 100%; /* Make the iframe take up the full width of the container */
+    height: 490px; /* Make iframe height adjust according to container */
+    border: none; /* Remove the border */
+  }
+}
+
+@media (max-width: 768px) {
+  .copyright {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+    padding: 10px; /* Reduce padding on smaller screens */
   }
 
-  .s {
-    height: 490px;
+  .copyright a {
+    font-size: 0.9rem; /* Adjust link font size */
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+  .copyright {
+    font-size: 0.9rem; /* Adjust font size further */
+    padding: 8px; /* Further reduce padding */
+  }
+
+  .copyright a {
+    font-size: 1rem; /* Reduce link font size */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    position: absolute; /* Ensure the logo is not fixed while scrolling */
+    top: 20px; /* Add space from the top */
+    left: 50%; /* Center the logo horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    height: 200px; /* Set the height */
+    width: auto; /* Maintain the aspect ratio */
+    z-index: 10; /* Ensure it's above other content */
+  }
+}
+
+/* Media query for medium screens */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+    display: flex; /* Make wrapper a flex container */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Align items in a column */
   }
 
   .logo {
-    width: auto; /* Keep aspect ratio */
-    margin-bottom: 60px;
+    margin-bottom: 50px; /* Increased space below the logo */
+    display: flex;
+    justify-content: center; /* Center logo horizontally */
   }
 
   h1 {
-    font-size: 36px;
-    margin-top: 180px;
+    font-size: 40px; /* Increased font size of h1 */
+    margin-top: 150px; /* Further increased space above the h1 */
+    text-align: center; /* Center align the h1 text */
+  }
+
+  .event {
+    font-size: 14px;
+    text-align: center; /* Center align the event text */
+  }
+}
+
+/* Media query for small screens */
+@media (max-width: 480px) {
+  .logo {
+    width: 120px; /* Smaller logo on mobile */
+    margin-bottom: 60px; /* More space below the logo on mobile */
+    display: flex;
+    justify-content: center; /* Center logo horizontally */
+  }
+
+  h1 {
+    font-size: 36px; /* Bigger font size for h1 on small screens */
+    margin-top: 180px; /* Even more space above h1 on small screens */
+    text-align: center; /* Center align the h1 text */
   }
 
   .event {
     font-size: 12px;
+    text-align: center; /* Center align the event text */
   }
+}
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
   .t {
-    font-size: 40px;
-    gap: 8px;
+    font-size: 50px; /* Reduce font size for smaller screens */
+    gap: 10px; /* Reduce space between elements */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    display: flex; /* Make .t a flex container */
   }
 
   .weather-icon {
-    font-size: 30px;
+    font-size: 35px; /* Adjust weather icon size */
   }
 
   .temperature {
-    font-size: 24px;
-  }
-
-  .spotify-iframe {
-    height: 250px;
+    font-size: 28px; /* Adjust temperature font size */
   }
 }
+
+/* Media query for very small screens (e.g., mobile) */
+@media (max-width: 480px) {
+  .t {
+    font-size: 40px; /* Further reduce font size */
+    gap: 8px; /* Reduce gap further */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    display: flex; /* Make .t a flex container */
+  }
+
+  .weather-icon {
+    font-size: 30px; /* Adjust weather icon size */
+  }
+
+  .temperature {
+    font-size: 24px; /* Adjust temperature font size */
+  }
 
 button {
   background-color: rgba(255, 255, 255, 0.3);
   border: none;
   padding: 10px 20px;
-  margin: 5px auto; /* Center horizontally */
+  margin: 5px;
   border-radius: 32px;
   cursor: pointer;
   font-size: 15px;
   color: white;
-  display: block;
+  display: block; /* Make button a block-level element */
+  margin-left: auto; /* Center horizontally */
+  margin-right: auto; /* Center horizontally */
 }
 
+/* If you want to center multiple buttons within a container */
 .buttons {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
+  justify-content: center; /* Center buttons horizontally */
+  align-items: center; /* Center buttons vertically */
+  flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
+}
+}
+
+.spotify-iframe {
+  border-radius: 0px; /* Apply rounded corners */
+  width: 87%; /* Set width to 100% of the parent container */
+  margin-left: 90px;
+  margin-right: 90px;
+  height: 465px; /* Set height to 352px */
+  border: none; /* Remove default border */
+}
+
+@media (max-width: 768px) {
+  .spotify-iframe {
+    width: 360px; /* Set width to 100% on smaller screens */
+    margin-left: 10px; /* Reduce margin */
+    margin-right: 10px; /* Reduce margin */
+    height: 300px; /* Adjust height for mobile */
+  }
+}
+
+/* Extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .spotify-iframe {
+    height: 250px; /* Further adjust height for very small screens */
+  }
 }
 
 
-/* Target iPhone 15 Pro Max specifically */
-@media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
-  h2 {
-    font-size: 24px;
-    margin-left: 20px;
-  }
-
-  h2::after {
-    width: 80%; /* Consistent underline width */
-  }
-
-  .i {
-    display: grid; /* Grid layout */
-    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
-    gap: 10px;
-    margin-left: 10px;
-  }
-
-  .i img {
-    width: 85%; /* Maintain responsive image size */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 0;
-  }
-
-  .iframe-container {
-    width: 100%; /* Full width */
-    height: 180px; /* Adjust height */
-    max-width: 100%; /* Prevent overflow */
-    border: none;
-  }
-
-  .slide {
-    width: 100%; /* Full width */
-    height: 1500px; /* Adjust height */
-    max-width: 100%; /* Prevent overflow */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: visible;
-  }
-
-  .s {
-    width: 100%; /* Full width */
-    height: 490px; /* Adjust height */
-    border: none;
-  }
-
-  .copyright {
-    font-size: 0.9rem; /* Adjust font size for smaller screens */
-    padding: 8px;
-  }
-
-  .copyright a {
-    font-size: 1rem;
-  }
-
-  .logo img {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    height: 200px;
-    width: auto;
-    z-index: 10;
-  }
-
-  .wrapper {
+@media screen and (max-width: 1752px) and (orientation: portrait) {
+  .content {
+    height: auto;
     padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .logo {
-    width: 120px; /* Adjust for mobile screens */
-    margin-bottom: 60px;
-    display: flex;
-    justify-content: center;
-  }
-
-  h1 {
-    font-size: 36px; /* Responsive font size */
-    margin-top: 180px;
-    text-align: center;
-  }
-
-  .event {
-    font-size: 12px;
-    text-align: center;
-  }
-
-  .t {
-    font-size: 40px;
-    gap: 8px;
-    justify-content: center;
-    align-items: center;
-    display: flex;
-  }
-
-  .weather-icon {
-    font-size: 30px;
-  }
-
-  .temperature {
-    font-size: 24px;
-  }
-
-  button {
-    background-color: rgba(255, 255, 255, 0.3);
-    border: none;
-    padding: 10px 20px;
-    margin: 5px auto; /* Center button */
-    border-radius: 32px;
-    cursor: pointer;
-    font-size: 15px;
-    color: white;
-    display: block;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .spotify-iframe {
-    width: 87%;
-    margin-left: 10px;
-    margin-right: 10px;
-    height: 250px; /* Adjusted height */
-    border: none;
-  }
-}
-
-/* Target Samsung Galaxy Tab S9 Plus in portrait mode */
-@media only screen and (device-width: 800px) and (device-height: 1280px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {
-  h2 {
-    font-size: 28px; /* Slightly larger font size for the larger screen */
-    margin-left: 30px;
-  }
-
-  h2::after {
-    width: 75%; /* Adjust underline width */
-  }
-
-  .i {
-    display: grid; /* Grid layout */
-    grid-template-columns: repeat(4, 1fr); /* 4 items per row for larger screens */
-    gap: 15px; /* Increase space between images */
-    margin-left: 20px;
-  }
-
-  .i img {
-    width: 90%; /* Adjust image size */
-    height: auto; /* Maintain aspect ratio */
-  }
-
-  .iframe-container {
-    width: 100%; /* Full width */
-    height: 250px; /* Increase height for larger screens */
-    border: none;
-  }
-
-  .slide {
-    width: 100%;
-    height: 1800px; /* Adjust height */
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    overflow: visible;
-  }
-
-  .s {
-    width: 100%;
-    height: 600px; /* Increase height for larger iframe */
-    border: none;
-  }
-
-  .copyright {
-    font-size: 1.1rem; /* Larger font size */
-    padding: 12px; /* Adjust padding */
-  }
-
-  .copyright a {
-    font-size: 1rem;
-  }
-
-  .logo img {
-    position: absolute;
-    top: 30px; /* Add more space from the top */
-    left: 50%;
-    transform: translateX(-50%);
-    height: 250px; /* Larger logo */
-    width: auto;
   }
 
   .wrapper {
-    padding: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .logo {
-    width: 150px; /* Larger logo width */
-    margin-bottom: 70px;
-    display: flex;
-    justify-content: center;
+    padding: 20px; /* Reduce padding for smaller screens */
+    text-align: center; /* Center align for better readability */
   }
 
   h1 {
-    font-size: 42px; /* Larger font size for the heading */
-    margin-top: 200px;
+    font-size: 48px; /* Reduce font size for h1 */
     text-align: center;
   }
 
-  .event {
-    font-size: 14px; /* Adjust font size */
-    text-align: center;
+  h2 {
+    font-size: 28px;
+    margin-left: 0; /* Remove left margin */
+    text-align: center; /* Center align h2 */
   }
 
   .t {
-    font-size: 50px;
-    gap: 12px; /* Increase gap */
-    justify-content: center;
-    align-items: center;
-    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    gap: 10px; /* Adjust gap for better spacing */
   }
 
-  .weather-icon {
-    font-size: 40px;
+  .logo img {
+    top: 50px; /* Adjust image position */
+    right: 0;
+    height: 300px;
+    width: auto;
   }
 
-  .temperature {
-    font-size: 32px;
+  .iframe-container, .slide {
+    height: 200px; /* Adjust iframe container height */
+  }
+
+  .s, .c {
+    height: 180px; /* Adjust iframe heights */
+  }
+
+  .i {
+    flex-direction: column; /* Stack images vertically */
+    margin-left: 0;
+    align-items: center; /* Center-align images */
+  }
+
+  .i img {
+    width: 140px;
+    height: auto;
+  }
+
+  .copyright {
+    font-size: 0.9rem; /* Adjust font size */
+    padding: 10px;
   }
 
   button {
-    background-color: rgba(255, 255, 255, 0.3);
-    border: none;
-    padding: 12px 24px;
-    margin: 10px auto; /* Center button */
-    border-radius: 32px;
-    cursor: pointer;
-    font-size: 16px;
-    color: white;
-    display: block;
-  }
-
-  .buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-
-  .spotify-iframe {
-    width: 90%; /* Wider iframe */
-    margin-left: 20px;
-    margin-right: 20px;
-    height: 350px; /* Adjust height for larger screen */
-    border: none;
+    padding: 8px 16px;
+    font-size: 14px;
   }
 }
-
