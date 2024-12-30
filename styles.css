@@ -550,6 +550,16 @@ button {
   align-items: center; /* Center buttons vertically */
   flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
 }
+
+.spotify-iframe {
+  border-radius: 0px; /* Apply rounded corners */
+  width: 87%; /* Set width to 100% of the parent container */
+  margin-left: 90px;
+  margin-right: 90px;
+  height: 465px; /* Set height to 352px */
+  border: none; /* Remove default border */
+}
+
 }
 
 .spotify-iframe {
