@@ -551,8 +551,12 @@ button {
 }
 
 .spotify-iframe {
-  height: 200px; /* Further adjust height for very small screens */
-  width: 300px;
+  border-radius: 0px; /* Apply rounded corners */
+  width: 87%; /* Set width to 100% of the parent container */
+  margin-left: 90px;
+  margin-right: 90px;
+  height: 200px; /* Set height to 352px */
+  border: none; /* Remove default border */
 }
 }
 
