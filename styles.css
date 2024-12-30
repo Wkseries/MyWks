@@ -490,14 +490,21 @@ body {
     font-size: 1rem; /* Reduce link font size */
   }
 
-  .logo img {
-    position: absolute; /* Ensure the logo is not fixed while scrolling */
-    top: 10px; /* Add space from the top */
-    transform: translateX(-50%); /* Adjust for perfect centering */
-    height: 180px; /* Set the height */
-    z-index: 10; /* Ensure it's above other content */
+  .logo {
+    position: relative; /* Make the logo container relative */
+    text-align: center; /* Ensure the logo is centered */
+    width: 100%;
   }
-
+  
+  .logo img {
+    position: absolute; /* Ensure the logo doesn't move with scroll */
+    top: 50%; /* Vertically center it */
+    left: 50%; /* Horizontally center it */
+    transform: translate(-50%, -50%); /* Adjust for perfect centering */
+    height: 180px;
+    z-index: 10;
+  }
+  
 
   h1 {
     font-size: 36px; /* Bigger font size for h1 on small screens */
@@ -547,6 +554,15 @@ button {
   align-items: center; /* Center buttons vertically */
   flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
 }
+
+.music .iframe-container {
+  width: 90%; /* Set width to 90% of its parent container */
+  height: 180px; /* Maintain aspect ratio */
+  max-width: 100%; /* Ensure it doesn't overflow */
+  border: none; /* Remove border for a cleaner look */
+  margin: 0 auto; /* Center the iframe container */
+}
+
 }
 
 .spotify-iframe {
