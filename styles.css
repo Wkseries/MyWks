@@ -490,31 +490,15 @@ body {
     font-size: 1rem; /* Reduce link font size */
   }
 
-.logo img {
-  position: absolute;
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Adjust for perfect centering */
-  height: 180px;
-  z-index: 10;
-  max-width: 100%; /* Make sure logo doesn't overflow */
-}
+
 
 /* Fix for Spotify iframe alignment */
-.music .iframe-container {
+.spotify-iframe {
   width: 90%; /* Set iframe container to 90% width */
   max-width: 100%; /* Ensure it doesn't overflow */
   height: 180px; /* Maintain aspect ratio */
   border: none; /* Clean up border */
   display: block; /* Ensures it behaves as a block element */
-}
-
-/* Ensure the .music parent container allows centering */
-.music {
-  display: flex;
-  justify-content: left; /* Center iframe horizontally */
-  align-items: left; /* Center vertically */
-  width: 100%;
 }
 
 
