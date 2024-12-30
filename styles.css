@@ -490,14 +490,6 @@ body {
     font-size: 1rem; /* Reduce link font size */
   }
 
-/* Fix for the logo */
-.logo {
-  position: relative;
-  text-align: center; /* Center content horizontally */
-  width: 100%;
-  margin: 0 auto; /* Make sure the logo does not affect the layout */
-}
-
 .logo img {
   position: absolute;
   top: 50%; /* Center vertically */
@@ -513,7 +505,6 @@ body {
   width: 90%; /* Set iframe container to 90% width */
   max-width: 100%; /* Ensure it doesn't overflow */
   height: 180px; /* Maintain aspect ratio */
-  margin: 0 auto; /* Center horizontally */
   border: none; /* Clean up border */
   display: block; /* Ensures it behaves as a block element */
 }
@@ -521,10 +512,11 @@ body {
 /* Ensure the .music parent container allows centering */
 .music {
   display: flex;
-  justify-content: center; /* Center iframe horizontally */
-  align-items: center; /* Center vertically */
+  justify-content: left; /* Center iframe horizontally */
+  align-items: left; /* Center vertically */
   width: 100%;
 }
+
 
   h1 {
     font-size: 36px; /* Bigger font size for h1 on small screens */
