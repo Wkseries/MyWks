@@ -576,17 +576,19 @@ button {
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .spotify-iframe {
     width: 95%; /* Set iframe to 95% of the page width */
-    margin-left: 2.5%; /* Margin on the left */
-    margin-right: 2.5%; /* Margin on the right */
+    margin-left: 2.5%; /* 2.5% margin on the left */
+    margin-right: 2.5%; /* 2.5% margin on the right */
+    height: 250px; /* Adjust height for smaller screens */
   }
 
   .logo {
-    position: fixed; /* Keep the logo fixed at the top */
-    top: 10px;
+    position: fixed; /* Keep logo fixed at the top when scrolling */
+    top: 10px; /* Adjust the distance from the top */
     left: 50%;
-    transform: translateX(-50%); /* Center the logo */
+    transform: translateX(-50%); /* Keep logo centered */
+    z-index: 1000; /* Make sure it doesn't overlap other content */
   }
 }
