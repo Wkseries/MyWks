@@ -573,14 +573,11 @@ button {
   align-items: center; /* Center buttons vertically */
   flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
 }
-
-.logo{
-  display: none;
-  visibility: hidden;
 }
 
-.spotify-iframe{
-  width: 200px;
-  height: 300px;
-}
+@media (max-width: 480px) {
+  /* Hide the logo */
+  .logo {
+      display: none;
+  }
 }
