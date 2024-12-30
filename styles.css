@@ -434,6 +434,29 @@ body {
   background-color: #ffffff; /* Example background color */
 }
 
+@media (max-width: 768px) {
+  h2 {
+    font-size: 24px;
+    margin-left: 40px;
+  }
+
+  h2::after {
+    width: 70%; /* Increase the underline width */
+  }
+
+  .i {
+    display: grid; /* Use grid layout instead of flexbox */
+    grid-template-columns: repeat(3, 1fr); /* 3 items per row */
+    gap: 10px; /* Space between images */
+    margin-left: 10px; /* Add some margin from the left */
+  }
+
+  .i img {
+    width: 90%; /* Make images a bit smaller */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: 0; /* Reset margin right */
+  }
+}
 
 @media (max-width: 480px) {
   h2 {
@@ -457,7 +480,9 @@ body {
     height: auto; /* Maintain aspect ratio */
     margin-right: 0; /* Reset margin right */
   }
+}
 
+@media (max-width: 480px) {
   .iframe-container {
     width: 100%;  /* Make iframe responsive */
     height: 180px; /* Maintain aspect ratio */
@@ -480,7 +505,21 @@ body {
     height: 490px; /* Make iframe height adjust according to container */
     border: none; /* Remove the border */
   }
+}
 
+@media (max-width: 768px) {
+  .copyright {
+    font-size: 1rem; /* Adjust font size for smaller screens */
+    padding: 10px; /* Reduce padding on smaller screens */
+  }
+
+  .copyright a {
+    font-size: 0.9rem; /* Adjust link font size */
+  }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
   .copyright {
     font-size: 0.9rem; /* Adjust font size further */
     padding: 8px; /* Further reduce padding */
@@ -489,18 +528,56 @@ body {
   .copyright a {
     font-size: 1rem; /* Reduce link font size */
   }
-
-
-
-/* Fix for Spotify iframe alignment */
-.spotify-iframe {
-  width: 90%; /* Set iframe container to 90% width */
-  max-width: 100%; /* Ensure it doesn't overflow */
-  height: 180px; /* Maintain aspect ratio */
-  border: none; /* Clean up border */
-  display: block; /* Ensures it behaves as a block element */
 }
 
+@media (max-width: 480px) {
+  .logo img {
+    position: absolute; /* Ensure the logo is not fixed while scrolling */
+    top: 20px; /* Add space from the top */
+    left: 50%; /* Center the logo horizontally */
+    transform: translateX(-50%); /* Adjust for perfect centering */
+    height: 200px; /* Set the height */
+    width: auto; /* Maintain the aspect ratio */
+    z-index: 10; /* Ensure it's above other content */
+  }
+}
+
+/* Media query for medium screens */
+@media (max-width: 768px) {
+  .wrapper {
+    padding: 10px;
+    display: flex; /* Make wrapper a flex container */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    flex-direction: column; /* Align items in a column */
+  }
+
+  .logo {
+    margin-bottom: 50px; /* Increased space below the logo */
+    display: flex;
+    justify-content: center; /* Center logo horizontally */
+  }
+
+  h1 {
+    font-size: 40px; /* Increased font size of h1 */
+    margin-top: 160px; /* Further increased space above the h1 */
+    text-align: center; /* Center align the h1 text */
+  }
+
+  .event {
+    font-size: 14px;
+    text-align: center; /* Center align the event text */
+  }
+}
+
+/* Media query for small screens */
+@media (max-width: 480px) {
+  .logo {
+    width: 120px; /* Smaller logo on mobile */
+    margin-bottom: 60px; /* More space below the logo on mobile */
+    display: flex;
+    justify-content: center; /* Center logo horizontally */
+  }
 
   h1 {
     font-size: 36px; /* Bigger font size for h1 on small screens */
@@ -512,7 +589,29 @@ body {
     font-size: 12px;
     text-align: center; /* Center align the event text */
   }
+}
 
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .t {
+    font-size: 50px; /* Reduce font size for smaller screens */
+    gap: 10px; /* Reduce space between elements */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    display: flex; /* Make .t a flex container */
+  }
+
+  .weather-icon {
+    font-size: 35px; /* Adjust weather icon size */
+  }
+
+  .temperature {
+    font-size: 28px; /* Adjust temperature font size */
+  }
+}
+
+/* Media query for very small screens (e.g., mobile) */
+@media (max-width: 480px) {
   .t {
     font-size: 40px; /* Further reduce font size */
     gap: 8px; /* Reduce gap further */
@@ -550,33 +649,6 @@ button {
   align-items: center; /* Center buttons vertically */
   flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
 }
-
-.spotify-iframe {
-  border-radius: 0px; /* Apply rounded corners */
-  width: 87%; /* Set width to 100% of the parent container */
-  margin-left: 5px;
-  margin-right: 5px;
-  height: 465px; /* Set height to 352px */
-  border: none; /* Remove default border */
-}
-
-.logo img {
-  position: absolute; /* Ensure the logo is not fixed while scrolling */
-  top: 20px; /* Add space from the top */
-  left: 50%; /* Center the logo horizontally */
-  transform: translateX(-50%); /* Adjust for perfect centering */
-  height: 200px; /* Set the height */
-  width: auto; /* Maintain the aspect ratio */
-  z-index: 10; /* Ensure it's above other content */
-}
-
-.logo {
-  width: 120px; /* Smaller logo on mobile */
-  margin-bottom: 60px; /* More space below the logo on mobile */
-  display: flex;
-  justify-content: center; /* Center logo horizontally */
-}
-
 }
 
 .spotify-iframe {
@@ -588,3 +660,18 @@ button {
   border: none; /* Remove default border */
 }
 
+@media (max-width: 768px) {
+  .spotify-iframe {
+    width: 360px; /* Set width to 100% on smaller screens */
+    margin-left: 10px; /* Reduce margin */
+    margin-right: 10px; /* Reduce margin */
+    height: 300px; /* Adjust height for mobile */
+  }
+}
+
+/* Extra small devices (max-width: 480px) */
+@media (max-width: 480px) {
+  .spotify-iframe {
+    height: 250px; /* Further adjust height for very small screens */
+  }
+}
