@@ -576,6 +576,7 @@ button {
 
 .logo{
   display: none;
+  visibility: hidden;
 }
 
 .spotify-iframe{
