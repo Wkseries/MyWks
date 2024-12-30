@@ -577,7 +577,7 @@ button {
 
 @media (max-width: 480px) {
   .logo {
-      top: 10px; /* Adjust logo position for smaller screens */
+      top: 0px; /* Adjust logo position for smaller screens */
       left: 50%;
       transform: translateX(-50%);
   }
