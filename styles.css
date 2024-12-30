@@ -493,19 +493,13 @@ body {
   .logo img {
     position: absolute; /* Ensure the logo is not fixed while scrolling */
     top: 10px; /* Add space from the top */
-    left: 50%; /* Center the logo horizontally */
+    left: 30%; /* Center the logo horizontally */
     transform: translateX(-50%); /* Adjust for perfect centering */
     height: 180px; /* Set the height */
     width: auto; /* Maintain the aspect ratio */
     z-index: 10; /* Ensure it's above other content */
   }
 
-  .logo {
-    width: 120px; /* Smaller logo on mobile */
-    margin-bottom: 60px; /* More space below the logo on mobile */
-    display: flex;
-    justify-content: center; /* Center logo horizontally */
-  }
 
   h1 {
     font-size: 36px; /* Bigger font size for h1 on small screens */
@@ -558,6 +552,7 @@ button {
 
 .spotify-iframe {
   height: 200px; /* Further adjust height for very small screens */
+  width: 300px;
 }
 }
 
