@@ -474,14 +474,12 @@ body {
     border: none; /* Remove border for a cleaner look */
   }
 
-  .spotify-frame {
-    height: 300px;
-    width: 100px;
-    float: left;
-    margin-left: 20px; /* Adjust the margin as needed */
-    margin-top: 10px;  /* Optional: Adjust the top margin if needed */
-}
-
+  .spotify-iframe {
+    width: 100%;  /* Make iframe responsive */
+    height: 180px; /* Maintain aspect ratio */
+    max-width: 100%; /* Ensure iframe doesn't overflow */
+    border: none; /* Remove border for a cleaner look */
+  }
 
   .slide {
     width: 100%;
@@ -529,7 +527,7 @@ body {
 
   .logo {
     width: 120px; /* Smaller logo on mobile */
-    margin-bottom: 60px; /* More space below the logo on mobile */
+    margin-bottom: 10px; /* More space below the logo on mobile */
     display: flex;
     justify-content: center; /* Center logo horizontally */
   }
@@ -582,4 +580,11 @@ button {
   align-items: center; /* Center buttons vertically */
   flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
 }
+}
+
+@media (max-width: 480px) {
+  /* Hide the logo */
+  .logo {
+      display: none;
+  }
 }
