@@ -573,17 +573,13 @@ button {
   align-items: center; /* Center buttons vertically */
   flex-wrap: wrap; /* Allow wrapping if there are too many buttons */
 }
+
+.logo{
+  display: none;
 }
 
-@media (max-width: 480px) {
-  .logo {
-      position: absolute;
-      top: 10px; /* Adjust the distance from the top */
-      left: 50%;
-      transform: translateX(-50%);
-  }
-
-  .content {
-      margin-top: 120px; /* Add margin to push down other elements */
-  }
+.spotify-iframe{
+  width: 200px;
+  height: 300px;
+}
 }
